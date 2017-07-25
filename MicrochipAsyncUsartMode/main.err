@@ -1,0 +1,11 @@
+>>> Warning 208 "C:\DADOS\projeto\INCLUDES\usart.h" Line 16(1,16): Function not void and does not return a value  usart_baud_rate
+>>> Warning 208 "C:\DADOS\projeto\INCLUDES\usart.h" Line 36(1,10): Function not void and does not return a value  usart_int
+>>> Warning 208 "C:\DADOS\projeto\INCLUDES\usart.h" Line 63(1,13): Function not void and does not return a value  usart_config
+>>> Warning 208 "C:\DADOS\projeto\INCLUDES\usart.h" Line 78(1,9): Function not void and does not return a value  usart_tx
+>>> Warning 208 "C:\DADOS\projeto\INCLUDES\usart.h" Line 120(1,14): Function not void and does not return a value  usart_tx_9bit
+>>> Warning 208 "main.c" Line 49(1,18): Function not void and does not return a value  recebe_dado_usart
+>>> Warning 208 "main.c" Line 94(1,18): Function not void and does not return a value  trata_dado_serial
+>>> Warning 203 "main.c" Line 135(1,1): Condition always TRUE
+>>> Warning 216 "main.c" Line 192(0,1): Interrupts disabled during call to prevent re-entrancy:  (usart_config)
+      Memory usage:   ROM=11%      RAM=5% - 9%
+      0 Errors,  9 Warnings.

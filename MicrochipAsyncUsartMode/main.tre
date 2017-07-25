@@ -1,0 +1,14 @@
+ÀÄmain
+   ÃÄMAIN  0/67  Ram=0
+   ³  ÃÄ??0??
+   ³  ÃÄusart_baud_rate  0/13  Ram=2
+   ³  ÃÄusart_config  0/36  Ram=5
+   ³  ÃÄusart_int  0/20  Ram=3
+   ³  ÀÄtrata_dado_serial  0/15  Ram=1
+   ³     ÀÄusart_tx  (Inline)  Ram=1
+   ÀÄinterrupcao  0/63  Ram=1
+      ÃÄinterrupt_rx_usart  (Inline)  Ram=0
+      ÀÄrecebe_dado_usart  (Inline)  Ram=1
+         ÃÄusart_rx  (Inline)  Ram=1
+         ÃÄusart_config  0/36  Ram=5
+         ÀÄusart_config  0/36  Ram=5

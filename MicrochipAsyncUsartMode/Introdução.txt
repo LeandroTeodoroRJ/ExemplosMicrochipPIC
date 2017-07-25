@@ -1,0 +1,107 @@
+****************************************************************************************
+*     					USART 				               *
+****************************************************************************************
+
+	A USART (Universal Syncronal Asynchronous Receiver Transmitter) é responsável 
+pela transmissão e recepção serial de bits, podendo operar em modo síncrono (com linha de 
+sincronismo de clock) ou em modo assíncrono (ausência de clock, sendo o sincronismo 
+realizado pela mesma configuração da taxa de transferência – Baud Rate). Neste exemplo 
+será tratado somente a operação em modo assíncrono. Para efetuar a comunicação serial a 
+USART é composta de dois registradores de deslocamento, sedo um para recepção e o outro 
+para transmissão. Possibilitando operação em full-duplex pelo hardware.
+	Os sinais são recebidos e transmitidos por dois pinos do integrado, no caso do PIC 
+16F628, pelos pinos RB1 (RX) e RB2 (TX). Em modo síncrono a pinos assumem a função de 
+linha bidirecional de dados (DT) e linha de clock (CK), respectivamente. Não há padronização 
+de tensões referentes a protocolos, sendo 0V referenciado ao nível lógico baixo e +Vcc do 
+dispositivo referenciado ao nível lógico alto.
+	A USART pode operar nos seguintes modos:
+		* Modo síncrono;
+		* Modo assíncrono;
+		* Com o 9° bit destinado a controle de endereço do dispositivo;
+		* Com o 9° bit destinado a controle de erro de paridade;
+		* Com ou sem interrupção de recepção ou transmissão de dados;
+
+	OBSERVAÇÕES GERAIS DE OPERAÇÃO DA USART EM MODO ASSÍNCRONO:
+	1. Devido ausência de clock a mensagem é transmitida entre um bit de Start e um bit 
+de Stop, a mensagem é composta de 8 bit de dados e de modo opcional mais 1 bit destinado 
+a paridade ou detecção de endereçamento.
+	2. As taxas de transferência  - Baud Rate – são padronizadas, devendo ser consultado 
+o help da função para a escolha da configuração ideal.
+	3. Para habilitação da interrupção deve-se habilitar os bits GIE, PEIE. Sendo os bits 
+TXIE e RCIE responsáveis pelas habilitações de interrupção de transmissão e recepção, 
+respectivamente.
+	4. O flag de interrupção de transmissão TXIF é setado quando o dado é transferido 
+para a transmissão via hardware, liberando assim o registrador TXREG para envio de um novo 
+dado para transmissão, que será feito pela rotina de interrupção. O flag TXIF não pode ser 
+apagado por software, apagado somente quando um novo dado é inserido no registrador 
+TXREG.
+	5. Se a interrupção de recepção estiver habilitada pelo bit RCIE o flag RCIF somente é 
+apagado quando o dado é lido no registrador RCREG, não podendo ser apagado via software. 
+	6. O bit FERR é responsável por indicar o erro quando o Stop bit ou o Start bit não são 
+recebidos corretamente. O bit OERR indica o erro de overrun (buffer overflow), quando um 
+dado é perdido por não ser lido pela CPU. O apagamento do bit OERR é feito resetando o 
+módulo da USART (bit CREN=0 e depois CREN=1).
+
+      FUNÇÕES DE MANIPULAÇÃO DA USART
+1. Configuração de Baud Rate:
+usart_baud_rate(short int vel, int baud_rate)
+Exemplo de chamada:
+usart_baud_rate(high_speed, 25);
+OBS: O argument vel pode receber low_speed ou high_speed, o valor de baud_rate deve ser 
+consultado da tabela.
+
+2. Configura interrupção da USART
+usart_int(short int tx_int, short int rx_int, short int int_9bit)
+Exemplo de chamada:
+usart_int(tx_int_off, rx_int_off, int_9bit_off);
+OBS: Os argumentos podem ser: tx_int_on, tx_int_off, rx_int_on, rx_int_off, int_9bit_on, 
+int_9bit_off.
+
+3. Configura a USART
+usart_config(short int bits, short int syc, short int tx_liga, short int usart_liga, short int 
+rx_config)
+Exemplo de chamada:
+usart_config(modo8bits, assincrono, tx_on, usart_on, rx_continuo);
+OBS: Os argumentos podem ser: modo8bits, modo9bits, tx_on (habilita transmissão), tx_off, 
+sincrono, assincrono, usart_on (habilita a usart), usart_off, rx_continuo (modo de recepção 
+contínua), rx_unica.
+
+4. Transmite um dado pela USART
+usart_tx(int dado)
+
+5. Recebe um dado pela USART modo de 8 bits
+int usart_rx()
+Obs: A função retorna:
+0 se a usart não recebeu um novo dado;
+1 se a usart recebeu um novo dado e carrega em usart_rx_dado;
+2 para erro de frame;
+3 para erro de overrun (buffer overload);
+Caso não ocorra erro o dado é carregado na variável int usart_rx_dado, para leitura
+
+6. Transmite um dado de 9 bits pela USART
+usart_tx_9bit(short int bit_adress, int dado)
+Exemplo de chamada:
+usart_tx_9bit(adress, 0x0F);
+usart_tx_9bit(data, 0x0c);
+short int bit_paridade
+bit_paridade = 1;
+usart_tx_9bit(bit_paridade, 0x0c);
+
+7. Recebe um dado de 9 bits pela USART
+int usart_rx_9bit()
+Obs: A função retorna:
+0 SE A USART NÃO RECEBEU UM NOVO DADO
+1 SE A USART RECEBEU UM NOVO ENDEREÇO (OU BIT DE PARIDADE = 1) E CARREGA EM usart_rx_dado
+2 SE A USART RECEBEU UM NOVO DADO E CARREGA EM usart_rx_dado
+3 PARA ERRO DE FRAME
+4 PARA ERRO DE OVERRUN (BUFFER OVERLOAD)
+
+
+ARQUIVOS DO MÓDULO
+main.c – Código principal
+main.hex – Código hexadecimal para ser gravado no PIC16F628
+USART.pdf - Diagrama esquemático do circuito
+Tabela_pagina1, 2, 3, 4 - Tabelas para configuração do baud rate
+
+
+
