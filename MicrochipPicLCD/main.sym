@@ -1,0 +1,212 @@
+003     status
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     port_a
+006     port_b
+006.3   trigger
+006.4   trigger_inv
+00B     intcon
+00B.0   rbif
+00B.1   intf
+00B.2   t0if
+00B.3   rbie
+00B.4   inte
+00B.5   t0ie
+00B.6   peie
+00B.7   gie
+00C.0   tmr1if
+00C     pir1
+00C.1   tmr2if
+00C.2   ccp1if
+00C.4   txif
+00C.5   rcif
+00C.6   cmif
+00C.7   eeif
+015     CCP_1_LOW
+015     CCP_1
+015     ccpr1l
+016     ccpr1h
+016     CCP_1_HIGH
+017     ccp1con
+018     rcsta
+018.0   rx9d
+018.1   oerr
+018.2   ferr
+018.3   adden
+018.4   cren
+018.5   sren
+018.6   rx9
+018.7   spen
+019     txreg
+01A     rcreg
+01F.6   C1OUT
+01F.7   C2OUT
+020-021 strtok.save
+022     w_temp
+023     status_temp
+024-02D var1
+02E     count
+02F     var3
+030     var4
+031-034 var5
+035     var6
+036-039 @PRINTF_L32D_230FPFPF.P1
+036     lcd_ini.conta
+036     @PRINTF_D_230.P1
+036     @PRINTF_U_230.P2
+036-039 @PRINTF_E_230.P3
+036     MAIN.@SCRATCH1
+037     @PRINTF_U_230.P1
+037     @PRINTF_D_230.P2
+037     lcd_ini.@SCRATCH1
+038     @PRINTF_D_230.@SCRATCH1
+039     @PRINTF_D_230.@SCRATCH2
+03A     @PRINTF_L32D_230FPFPF.P1
+03A-03D @PRINTF_E_230.P2
+03A     @PRINTF_D_230.@SCRATCH3
+03B     @PRINTF_D_230.@SCRATCH4
+03B     @PRINTF_L32D_230FPFPF.@SCRATCH1
+03C     @DIV88.P1
+03C     @PRINTF_L32D_230FPFPF.@SCRATCH2
+03D     @DIV88.P1
+03D     @PRINTF_L32D_230FPFPF.@SCRATCH3
+03E     @DIV88.@SCRATCH1
+03E     @PRINTF_L32D_230FPFPF.@SCRATCH4
+03E     @PRINTF_E_230.@SCRATCH1
+03F     @PRINTF_L32D_230FPFPF.@SCRATCH5
+03F     @PRINTF_E_230.@SCRATCH2
+040     @PRINTF_L32D_230FPFPF.@SCRATCH6
+040     @PRINTF_E_230.@SCRATCH3
+041     @PRINTF_L32D_230FPFPF.@SCRATCH7
+041     @PRINTF_E_230.@SCRATCH4
+042     @PRINTF_L32D_230FPFPF.@SCRATCH8
+042     @PRINTF_E_230.@SCRATCH5
+043-046 @FTOSD.P1
+043-046 @MULFF.P2
+043-046 @DIV3232.P3
+043     @PRINTF_E_230.@SCRATCH6
+044     @PRINTF_E_230.@SCRATCH7
+045     @PRINTF_E_230.@SCRATCH8
+046     @PRINTF_E_230.@SCRATCH9
+047-04A @DIV3232.P1
+047-04A @MULFF.P2
+047     @FTOSD.@SCRATCH1
+047     @PRINTF_E_230.@SCRATCH10
+048     lcd_escreve.c
+049     @delay_ms1.P1
+049     lcd_pos_xy.x
+04A     lcd_pos_xy.y
+04B     lcd_pos_xy.endereco
+04B     @MULFF.@SCRATCH1
+04B     @DIV3232.@SCRATCH1
+04C     lcd_pos_xy.@SCRATCH1
+04C     @MULFF.@SCRATCH2
+04C     @DIV3232.@SCRATCH2
+04D     lcd_envia_byte.endereco
+04D     @MULFF.@SCRATCH3
+04D     @DIV3232.@SCRATCH3
+04E     lcd_envia_byte.dado
+04E     @MULFF.@SCRATCH4
+04E     @DIV3232.@SCRATCH4
+04F     lcd_envia_byte.@SCRATCH1
+04F     @MULFF.@SCRATCH5
+04F     @DIV3232.@SCRATCH5
+050     lcd_envia_nibble.dado
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+081     option_reg
+085     tris_a
+086     tris_b
+08C     pie1
+08C.0   tmr1ie
+08C.1   tmr2ie
+08C.2   ccp1ie
+08C.4   txie
+08C.5   rcie
+08C.6   cmie
+08C.7   eeie
+098     txsta
+098.0   tx9d
+098.1   trmt
+098.2   brgh
+098.4   sync
+098.5   txen
+098.6   tx9
+098.7   csrc
+099     spbrg
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+00FB  @delay_ms1
+0013  INI_LCD
+0110  lcd_envia_nibble
+0127  lcd_envia_byte
+0140  lcd_ini
+0169  lcd_pos_xy
+017B  lcd_escreve
+0004  interrupcao
+0527  MAIN
+001B  @const235
+0029  @const236
+0033  @const237
+0041  @const238
+004F  @const239
+01A3  @DIV88
+01B8  @PRINTF_U_230
+005F  @const246
+006D  @const247
+01ED  @PRINTF_D_230
+007C  @const251
+008A  @const252
+009F  @const253
+00AD  @const254
+02A8  @MULFF
+032E  @FTOSD
+0252  @DIV3232
+0294  @PRINTF_L32D_230FPFPF
+00BF  @const266
+00CD  @const267
+03EE  @PRINTF_E_230
+00DF  @const271
+00ED  @const272
+0527  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\DADOS\projeto\MicrochipPicLCD\
+
+Project Files:
+    main.c
+    ..\..\..\Program Files (x86)\PICC\devices\16F628.h
+    ..\..\..\Program Files (x86)\PICC\drivers\string.h
+    ..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+    ..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+    ..\INCLUDES\16f628_registradores.h
+    ..\includes\lcd.h
+
+Units:
+    C:\DADOS\projeto\MicrochipPicLCD\main (main)
+
+Compiler Settings:
+    Processor:      PIC16F628
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.sta

@@ -1,0 +1,4 @@
+>>> Warning 230 "main.c" Line 52(29,30): String truncated
+>>> Warning 203 "main.c" Line 132(1,1): Condition always TRUE
+      Memory usage:   ROM=89%      RAM=12% - 24%
+      0 Errors,  2 Warnings.
