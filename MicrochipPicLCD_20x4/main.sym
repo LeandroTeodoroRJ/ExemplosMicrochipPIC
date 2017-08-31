@@ -1,0 +1,145 @@
+003     status
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     port_a
+006     port_b
+006.3   trigger
+006.4   trigger_inv
+00B     intcon
+00B.0   rbif
+00B.1   intf
+00B.2   t0if
+00B.3   rbie
+00B.4   inte
+00B.5   t0ie
+00B.6   peie
+00B.7   gie
+00C.0   tmr1if
+00C     pir1
+00C.1   tmr2if
+00C.2   ccp1if
+00C.4   txif
+00C.5   rcif
+00C.6   cmif
+00C.7   eeif
+015     CCP_1_LOW
+015     ccpr1l
+015     CCP_1
+016     ccpr1h
+016     CCP_1_HIGH
+017     ccp1con
+018     rcsta
+018.0   rx9d
+018.1   oerr
+018.2   ferr
+018.3   adden
+018.4   cren
+018.5   sren
+018.6   rx9
+018.7   spen
+019     txreg
+01A     rcreg
+01F.6   C1OUT
+01F.7   C2OUT
+020-021 strtok.save
+022     w_temp
+023     status_temp
+024     lcd_init.i
+024     MAIN.@SCRATCH1
+025     lcd_putc.c
+025     lcd_init.@SCRATCH1
+026     @delay_ms1.P1
+026     lcd_gotoxy.x
+027     lcd_gotoxy.y
+028     lcd_gotoxy.address
+029     lcd_gotoxy.@SCRATCH1
+02A     lcd_send_byte.address
+02B     lcd_send_byte.n
+02C     lcd_read_byte.low
+02C     lcd_send_byte.@SCRATCH1
+02D     lcd_read_byte.high
+02D     lcd_send_nibble.n
+02E     lcd_read_nibble.n
+02E     lcd_read_byte.@SCRATCH1
+02F     lcd_read_nibble.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+081     option_reg
+085     tris_a
+086     tris_b
+08C     pie1
+08C.0   tmr1ie
+08C.1   tmr2ie
+08C.2   ccp1ie
+08C.4   txie
+08C.5   rcie
+08C.6   cmie
+08C.7   eeie
+098     txsta
+098.0   tx9d
+098.1   trmt
+098.2   brgh
+098.4   sync
+098.5   txen
+098.6   tx9
+098.7   csrc
+099     spbrg
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+004B  @delay_ms1
+0013  LCD_INIT_STRING
+009F  lcd_read_byte
+0079  lcd_read_nibble
+0060  lcd_send_nibble
+009E  lcd_send_byte
+00DC  lcd_init
+010B  lcd_gotoxy
+011D  lcd_putc
+0004  interrupcao
+0142  MAIN
+001B  @const246
+0027  @const247
+0033  @const248
+003F  @const249
+0142  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\DADOS\projeto\MicrochipPicLCD_20x4\
+
+Project Files:
+    main.c
+    ..\..\..\Program Files (x86)\PICC\devices\16F628.h
+    ..\..\..\Program Files (x86)\PICC\drivers\string.h
+    ..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+    ..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+    ..\INCLUDES\16f628_registradores.h
+    ..\..\..\Program Files (x86)\PICC\drivers\lcd.c
+
+Units:
+    C:\DADOS\projeto\MicrochipPicLCD_20x4\main (main)
+
+Compiler Settings:
+    Processor:      PIC16F628
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.sta
