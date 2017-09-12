@@ -1,0 +1,53 @@
+
+ROM used: 103 (1%)
+          103 (1%) including unused fragments
+
+          0 Average locations per line
+          1 Average locations per statement
+
+RAM used: 13 (4%) at main() level
+          14 (4%) worst case
+
+Stack used: 1 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  228    53  30  main.c
+  298     0   0  ..\..\..\Program Files (x86)\PICC\devices\16F877.h
+  409   121  70  ..\..\..\Program Files (x86)\PICC\drivers\string.h
+   28     0   0  ..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+   28     0   0  ..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+   80     0   0  ..\INCLUDES\16f8x_registradores.h
+----- -----
+ 1071   174 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+ Inline        1   262  3.9  estouro_timer0
+ Inline        1   260  4.1  estouro_timer1
+0     49  48   1   231  3.3  interrupcao
+0     50  49   0   396  3.3  MAIN
+
+Program metrics:
+    Functions               4
+    Statements              174
+    Comments                400
+    Volume (V)              1595
+    Difficilty (D)          14.8
+    Effort to implement (E) 23541
+    Time to implement (T)   22 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   6
+    Maintainability (MI)    89
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00034    49  0  
+00035-007FF    50  1945  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

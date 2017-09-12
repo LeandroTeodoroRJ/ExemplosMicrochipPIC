@@ -1,0 +1,5 @@
+>>> Warning 208 "main.c" Line 70(1,15): Function not void and does not return a value  estouro_timer0
+>>> Warning 208 "main.c" Line 88(1,15): Function not void and does not return a value  estouro_timer1
+>>> Warning 203 "main.c" Line 173(1,1): Condition always TRUE
+      Memory usage:   ROM=1%      RAM=4% - 4%
+      0 Errors,  3 Warnings.
