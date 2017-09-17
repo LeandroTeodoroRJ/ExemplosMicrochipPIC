@@ -1,0 +1,194 @@
+003     status
+004     @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+005     port_a
+006     port_b
+006.3   trigger
+006.4   trigger_inv
+007     port_c
+008     PSP_DATA
+008     port_d
+009     port_e
+00B.0   rbif
+00B     intcon
+00B.1   intf
+00B.2   t0if
+00B.3   rbie
+00B.4   inte
+00B.5   t0ie
+00B.6   peie
+00B.7   gie
+00C.0   tmr1if
+00C     pir1
+00C.1   tmr2if
+00C.2   ccp1if
+00C.4   txif
+00C.5   rcif
+00C.6   cmif
+00C.7   eeif
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+018.0   rx9d
+018     rcsta
+018.1   oerr
+018.2   ferr
+018.3   adden
+018.4   cren
+018.5   sren
+018.6   rx9
+018.7   spen
+019     txreg
+01A     rcreg
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-021 strtok.save
+022     w_temp
+023     status_temp
+024-027 ref
+028-02B valor_adc
+02C     lcd_ini.conta
+02C     le_adc.canal
+02C     @PSTRINGCN7_231.P1
+02C-02F @PRINTF_L32D_231FPFPF.P2
+02C     MAIN.@SCRATCH1
+02C     @PSTRINGC7_231.@SCRATCH1
+02D     lcd_ini.@SCRATCH1
+02D     MAIN.@SCRATCH2
+02D     @PSTRINGC7_231.@SCRATCH2
+02D     @PSTRINGCN7_231.@SCRATCH1
+02E-02F converte.conv
+02E     @PSTRINGC7_231.@SCRATCH3
+02E     @PSTRINGCN7_231.@SCRATCH2
+02F     @PSTRINGCN7_231.@SCRATCH3
+030-031 @ITOF.P1
+030     @PRINTF_L32D_231FPFPF.P2
+031     @PRINTF_L32D_231FPFPF.@SCRATCH1
+032     @PRINTF_L32D_231FPFPF.@SCRATCH2
+033     @PRINTF_L32D_231FPFPF.@SCRATCH3
+034     @PRINTF_L32D_231FPFPF.@SCRATCH4
+035     @PRINTF_L32D_231FPFPF.@SCRATCH5
+036     @PRINTF_L32D_231FPFPF.@SCRATCH6
+037     @PRINTF_L32D_231FPFPF.@SCRATCH7
+038     @PRINTF_L32D_231FPFPF.@SCRATCH8
+039-03C @FTOSD.P1
+039-03C @MULFF.P2
+039     lcd_escreve.c
+039-03C @DIV3232.P1
+03A     lcd_pos_xy.x
+03A     @delay_ms1.P1
+03B     lcd_pos_xy.y
+03C     lcd_pos_xy.endereco
+03D-040 @DIV3232.P1
+03D-040 @MULFF.P2
+03D     lcd_pos_xy.@SCRATCH1
+03D     @FTOSD.@SCRATCH1
+03E     lcd_envia_byte.endereco
+03F     lcd_envia_byte.dado
+040     lcd_envia_byte.@SCRATCH1
+041     lcd_envia_nibble.dado
+041     @MULFF.@SCRATCH1
+041     @DIV3232.@SCRATCH1
+042     @MULFF.@SCRATCH2
+042     @DIV3232.@SCRATCH2
+043     @MULFF.@SCRATCH3
+043     @DIV3232.@SCRATCH3
+044     @MULFF.@SCRATCH4
+044     @DIV3232.@SCRATCH4
+045     @MULFF.@SCRATCH5
+045     @DIV3232.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+081     option_reg
+085     tris_a
+086     tris_b
+087     tris_c
+088     tris_d
+089     tris_e
+08C     pie1
+08C.0   tmr1ie
+08C.1   tmr2ie
+08C.2   ccp1ie
+08C.4   txie
+08C.5   rcie
+08C.6   cmie
+08C.7   eeie
+098.0   tx9d
+098     txsta
+098.1   trmt
+098.2   brgh
+098.4   sync
+098.5   txen
+098.6   tx9
+098.7   csrc
+099     spbrg
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+003B  @delay_ms1
+0013  INI_LCD
+004F  lcd_envia_nibble
+0066  lcd_envia_byte
+0080  lcd_ini
+00AB  lcd_pos_xy
+00BD  lcd_escreve
+0004  interrupcao
+00E5  le_adc
+0175  converte
+0179  @ITOF
+0100  @MULFF
+0364  MAIN
+001B  @const245
+01A7  @PSTRINGC7_231
+0024  @const247
+01ED  @PSTRINGCN7_231
+02A4  @FTOSD
+023B  @DIV3232
+027D  @PRINTF_L32D_231FPFPF
+002B  @const258
+0034  @const259
+0364  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\DADOS\projeto\MicrochipPicADC\
+
+Project Files:
+    main.c
+    ..\..\..\Program Files (x86)\PICC\devices\16F877.h
+    ..\..\..\Program Files (x86)\PICC\drivers\string.h
+    ..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+    ..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+    ..\INCLUDES\16f8x_registradores.h
+    ..\includes\lcd.h
+
+Units:
+    C:\DADOS\projeto\MicrochipPicADC\main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.sta
