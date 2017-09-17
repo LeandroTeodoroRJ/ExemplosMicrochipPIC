@@ -1,8 +1,8 @@
-CCS PCM C Compiler, Version 4.104, 5967               01-set-17 15:51
+CCS PCM C Compiler, Version 4.104, 5967               16-set-17 07:31
 
                Filename: C:\DADOS\projeto\MicrochipPicTeclado_4x4\main.lst
 
-               ROM used: 206 words (3%)
+               ROM used: 207 words (3%)
                          Largest free fragment is 2048
                RAM used: 13 (4%) at main() level
                          14 (4%) worst case
@@ -614,18 +614,18 @@ CCS PCM C Compiler, Version 4.104, 5967               01-set-17 15:51
 .................... //**************************************************************************** 
 .................... //****************************  ENTRADAS  ************************************ 
 .................... //PORTAS DO TECLADO 
-.................... #define  tris_tec    tris_d   //indica qual o port do teclado 
-.................... #define  port_tec    port_d 
+.................... #define  tris_tec    tris_b   //indica qual o port do teclado 
+.................... #define  port_tec    port_b 
 ....................  
 .................... //*****************************  SAÍDAS  ************************************* 
-.................... #define  saida       port_b 
+.................... #define  saida       port_d 
 ....................  
 .................... //**************************************************************************** 
 .................... //                        CONSTANTES E VARIÁVEIS 
 .................... //**************************************************************************** 
 .................... int   w_temp; 
 .................... int   status_temp; 
-.................... int count; 
+.................... int   count; 
 ....................  
 ....................  
 .................... //*************************************************************************** 
@@ -633,15 +633,15 @@ CCS PCM C Compiler, Version 4.104, 5967               01-set-17 15:51
 .................... //*************************************************************************** 
 .................... #include <teclado_4x4.h> 
 .................... /**************************************************************** 
-.................... 		ROTINA DE SCANEAMENTO DE TECLAS DE UMA MATRIZ 
-.................... 		4X4 USANDO UM PORT DO mC  09.05.06 
+....................       ROTINA DE SCANEAMENTO DE TECLAS DE UMA MATRIZ 
+....................       4X4 USANDO UM PORT DO mC  09.05.06 
 ....................  
 .................... VARIAVEIS: 
 ....................          KEY_TRATA = 1 INDICA QUE EXISTE UMA TECLA NOVA 
-.................... 			KEY_TRATA = 0 INDICA QUE NAO EXISTE UMA TECLA NOVA 
-.................... 			NEW_KEY => RECEBE O VALOR DA TECLA DIGITADA, AS TECLAS VARIAM NO INTERVALO DE 01 ATÉ 0F 
-.................... 			KEY_PRESS = 0 NENHUMA TECLA PRECIONADA 
-.................... 			KEY_PRESS = 1 TECLA PRECIONADA 
+....................          KEY_TRATA = 0 INDICA QUE NAO EXISTE UMA TECLA NOVA 
+....................          NEW_KEY => RECEBE O VALOR DA TECLA DIGITADA, AS TECLAS VARIAM NO INTERVALO DE 01 ATÉ 0F 
+....................          KEY_PRESS = 0 NENHUMA TECLA PRECIONADA 
+....................          KEY_PRESS = 1 TECLA PRECIONADA 
 ....................  
 .................... FUNÇÕES: 
 ....................          void scan_tec(void) ->  INICIA A BUSCA POR UMA TECLA PRECIONADA                                  
@@ -673,21 +673,19 @@ CCS PCM C Compiler, Version 4.104, 5967               01-set-17 15:51
 *
 0013:  MOVLW  F0
 0014:  BSF    03.5
-0015:  MOVWF  08
+0015:  MOVWF  06
 ....................        port_tec=0b11110000; 
 0016:  BCF    03.5
-0017:  MOVWF  08
+0017:  MOVWF  06
 ....................        if (port_tec == 0b11110000){ 
-0018:  MOVF   08,W
+0018:  MOVF   06,W
 0019:  SUBLW  F0
 001A:  BTFSS  03.2
 001B:  GOTO   01E
 ....................        key_press = 0;         //sai sem nenhuma pressionada 
 001C:  BCF    25.1
-....................        #asm 
-....................        RETURN 
-001D:  RETURN
-....................        #endasm 
+....................        return; 
+001D:  GOTO   08C
 ....................        } 
 ....................  
 ....................        delay_ms(20);                   //debouce 
@@ -696,16 +694,14 @@ CCS PCM C Compiler, Version 4.104, 5967               01-set-17 15:51
 ....................  
 ....................        if (port_tec == 0b11110000){ 
 *
-0033:  MOVF   08,W
+0033:  MOVF   06,W
 0034:  SUBLW  F0
 0035:  BTFSS  03.2
 0036:  GOTO   039
 ....................        key_press = 0;         //verifica se não foi ruido. 
 0037:  BCF    25.1
-....................        #asm 
-....................        RETURN 
-0038:  RETURN
-....................        #endasm 
+....................        return; 
+0038:  GOTO   08C
 ....................        } 
 ....................  
 ....................        if (!key_trata & key_press){       //já tratou a tecla ou esta 
@@ -719,114 +715,112 @@ CCS PCM C Compiler, Version 4.104, 5967               01-set-17 15:51
 0040:  ANDWF  28,W
 0041:  BTFSC  03.2
 0042:  GOTO   044
-....................        #asm                             //segurando? 
-....................        RETURN 
-0043:  RETURN
-....................        #endasm 
+....................        return; 
+0043:  GOTO   08C
 ....................        } 
 ....................  
 ....................        port_tec=0b11111110;         //primeira coluna 
 0044:  MOVLW  FE
-0045:  MOVWF  08
+0045:  MOVWF  06
 ....................        if (!bit_test(port_tec,4)) new_key=linha1[0]; 
-0046:  BTFSC  08.4
+0046:  BTFSC  06.4
 0047:  GOTO   04A
 0048:  MOVLW  01
 0049:  MOVWF  26
 ....................        if (!bit_test(port_tec,5)) new_key=linha2[0]; 
-004A:  BTFSC  08.5
+004A:  BTFSC  06.5
 004B:  GOTO   04E
 004C:  MOVLW  04
 004D:  MOVWF  26
 ....................        if (!bit_test(port_tec,6)) new_key=linha3[0]; 
-004E:  BTFSC  08.6
+004E:  BTFSC  06.6
 004F:  GOTO   052
 0050:  MOVLW  07
 0051:  MOVWF  26
 ....................        if (!bit_test(port_tec,7)) new_key=linha4[0]; 
-0052:  BTFSC  08.7
+0052:  BTFSC  06.7
 0053:  GOTO   056
 0054:  MOVLW  0D
 0055:  MOVWF  26
 ....................  
 ....................       port_tec=0b11111101;         //segunda coluna 
 0056:  MOVLW  FD
-0057:  MOVWF  08
+0057:  MOVWF  06
 ....................        if (!bit_test(port_tec,4)) new_key=linha1[1]; 
-0058:  BTFSC  08.4
+0058:  BTFSC  06.4
 0059:  GOTO   05C
 005A:  MOVLW  02
 005B:  MOVWF  26
 ....................        if (!bit_test(port_tec,5)) new_key=linha2[1]; 
-005C:  BTFSC  08.5
+005C:  BTFSC  06.5
 005D:  GOTO   060
 005E:  MOVLW  05
 005F:  MOVWF  26
 ....................        if (!bit_test(port_tec,6)) new_key=linha3[1]; 
-0060:  BTFSC  08.6
+0060:  BTFSC  06.6
 0061:  GOTO   064
 0062:  MOVLW  08
 0063:  MOVWF  26
 ....................        if (!bit_test(port_tec,7)) new_key=linha4[1]; 
-0064:  BTFSS  08.7
+0064:  BTFSS  06.7
 0065:  CLRF   26
 ....................  
 ....................        port_tec=0b11111011;         //terceira coluna 
 0066:  MOVLW  FB
-0067:  MOVWF  08
+0067:  MOVWF  06
 ....................        if (!bit_test(port_tec,4)) new_key=linha1[2]; 
-0068:  BTFSC  08.4
+0068:  BTFSC  06.4
 0069:  GOTO   06C
 006A:  MOVLW  03
 006B:  MOVWF  26
 ....................        if (!bit_test(port_tec,5)) new_key=linha2[2]; 
-006C:  BTFSC  08.5
+006C:  BTFSC  06.5
 006D:  GOTO   070
 006E:  MOVLW  06
 006F:  MOVWF  26
 ....................        if (!bit_test(port_tec,6)) new_key=linha3[2]; 
-0070:  BTFSC  08.6
+0070:  BTFSC  06.6
 0071:  GOTO   074
 0072:  MOVLW  09
 0073:  MOVWF  26
 ....................        if (!bit_test(port_tec,7)) new_key=linha4[2]; 
-0074:  BTFSC  08.7
+0074:  BTFSC  06.7
 0075:  GOTO   078
 0076:  MOVLW  0E
 0077:  MOVWF  26
 ....................  
 ....................        port_tec=0b11110111;         //quarta coluna 
 0078:  MOVLW  F7
-0079:  MOVWF  08
+0079:  MOVWF  06
 ....................        if (!bit_test(port_tec,4)) new_key=linha1[3]; 
-007A:  BTFSC  08.4
+007A:  BTFSC  06.4
 007B:  GOTO   07E
 007C:  MOVLW  0A
 007D:  MOVWF  26
 ....................        if (!bit_test(port_tec,5)) new_key=linha2[3]; 
-007E:  BTFSC  08.5
+007E:  BTFSC  06.5
 007F:  GOTO   082
 0080:  MOVLW  0B
 0081:  MOVWF  26
 ....................        if (!bit_test(port_tec,6)) new_key=linha3[3]; 
-0082:  BTFSC  08.6
+0082:  BTFSC  06.6
 0083:  GOTO   086
 0084:  MOVLW  0C
 0085:  MOVWF  26
 ....................        if (!bit_test(port_tec,7)) new_key=linha4[3]; 
-0086:  BTFSC  08.7
+0086:  BTFSC  06.7
 0087:  GOTO   08A
 0088:  MOVLW  0F
 0089:  MOVWF  26
 ....................  
-.................... 	   key_press = 1; 
+....................       key_press = 1; 
 008A:  BSF    25.1
 ....................        key_trata=1; 
 008B:  BSF    25.0
 .................... } 
 008C:  BCF    0A.3
 008D:  BCF    0A.4
-008E:  GOTO   0CB (RETURN)
+008E:  GOTO   0CC (RETURN)
 ....................  
 ....................  
 ....................  
@@ -891,14 +885,14 @@ CCS PCM C Compiler, Version 4.104, 5967               01-set-17 15:51
 0090:  GOTO   094
 ....................       saida = new_key; 
 0091:  MOVF   26,W
-0092:  MOVWF  06
-....................       key_trata=0; 
+0092:  MOVWF  08
+....................       key_trata = false; 
 0093:  BCF    25.0
 ....................       } 
 .................... } 
 0094:  BCF    0A.3
 0095:  BCF    0A.4
-0096:  GOTO   0CC (RETURN)
+0096:  GOTO   0CD (RETURN)
 ....................  
 ....................  
 .................... //**************************************************************************** 
@@ -951,39 +945,41 @@ CCS PCM C Compiler, Version 4.104, 5967               01-set-17 15:51
 00BE:  BCF    0B.7
 00BF:  BTFSC  0B.7
 00C0:  GOTO   0BE
-....................       bit_set(option_reg,7);    //sem pull-up 
+....................       port_b_pullups(true);   //Ativa os pullups do port B     
 00C1:  BSF    03.5
-00C2:  BSF    01.7
+00C2:  BCF    01.7
 ....................  
 .................... //    Configuração do tris 
 .................... //    Bit porta: 76543210 
 ....................       tris_a = 0b00000000; 
 00C3:  CLRF   05
-....................       tris_b = 0b00000000;  
-00C4:  CLRF   06
+.................... //      tris_b = 0b00000000;  //Definido no arquivo drive do teclado 
 ....................       tris_c = 0b00000000; 
-00C5:  CLRF   07
-.................... //      tris_d = 0b00000000;   //Definido no arquivo drive do teclado 
+00C4:  CLRF   07
+....................       tris_d = 0b00000000;    
+00C5:  CLRF   08
 ....................       tris_e = 0b00000000; 
 00C6:  CLRF   09
 ....................        
 ....................  
 .................... //******************** INICIALIZAÇÃO DE VARIÁVEIS *************************** 
-....................       saida = 0; 
+....................       key_trata = false; 
 00C7:  BCF    03.5
-00C8:  CLRF   06
+00C8:  BCF    25.0
+....................       saida = 0; 
+00C9:  CLRF   08
 .................... //**************************************************************************** 
 .................... //                             INICIO DO LOOP 
 .................... //**************************************************************************** 
 ....................       while(1){   
 ....................       restart_wdt(); 
-00C9:  CLRWDT
+00CA:  CLRWDT
 ....................       scan_tec();       //Verifica se alguma tecla foi digitada. 
-00CA:  GOTO   013
+00CB:  GOTO   013
 ....................       trata_tecla();    //Realiza o tratamento da tecla. 
-00CB:  GOTO   08F
+00CC:  GOTO   08F
 ....................       } 
-00CC:  GOTO   0C9
+00CD:  GOTO   0CA
 .................... //********************************* FIM ************************************** 
 .................... } 
 ....................  
@@ -1036,7 +1032,7 @@ CCS PCM C Compiler, Version 4.104, 5967               01-set-17 15:51
 ....................  
 ....................  
 ....................  
-00CD:  SLEEP
+00CE:  SLEEP
 
 Configuration Fuses:
    Word  1: 3F72   HS NOWDT PUT NOPROTECT BROWNOUT NOLVP NOCPD NOWRT NODEBUG

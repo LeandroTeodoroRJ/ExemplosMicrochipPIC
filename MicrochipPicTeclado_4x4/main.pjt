@@ -47,7 +47,7 @@ Count=1
 1=main.c
 [Opened Files]
 1=main.c
-2=
+2=..\INCLUDES\teclado_4x4.h
 3=
 4=..\INCLUDES\16f8x_registradores.h
 5=

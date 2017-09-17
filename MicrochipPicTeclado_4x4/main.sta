@@ -1,6 +1,6 @@
 
-ROM used: 206 (3%)
-          206 (3%) including unused fragments
+ROM used: 207 (3%)
+          207 (3%) including unused fragments
 
           0 Average locations per line
           1 Average locations per statement
@@ -12,32 +12,32 @@ Stack used: 2 worst case (out of 8 total available)
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  177    24  12  main.c
+  178    25  13  main.c
   298     0   0  ..\..\..\Program Files (x86)\PICC\devices\16F877.h
   409   121  61  ..\..\..\Program Files (x86)\PICC\drivers\string.h
    28     0   0  ..\..\..\Program Files (x86)\PICC\drivers\stddef.h
    28     0   0  ..\..\..\Program Files (x86)\PICC\drivers\ctype.h
    80     0   0  ..\INCLUDES\16f8x_registradores.h
-   90    52  26  ..\INCLUDES\teclado_4x4.h
+   84    52  26  ..\INCLUDES\teclado_4x4.h
 ----- -----
- 1110   197 Total
+ 1105   198 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
  Inline        1             @delay_ms1
-0    124  60   1  2048  4.9  scan_tec
+0    124  60   1  2094  5.4  scan_tec
 0     15   7   0   119  2.1  interrupcao
 0      8   4   0    50  1.8  trata_tecla
-0     55  27   0   303  3.3  MAIN
+0     56  27   0   313  2.8  MAIN
 
 Program metrics:
     Functions               4
-    Statements              197
-    Comments                345
-    Volume (V)              2989
+    Statements              198
+    Comments                344
+    Volume (V)              3054
     Difficilty (D)          12.6
-    Effort to implement (E) 37546
-    Time to implement (T)   35 minutes
+    Effort to implement (E) 38359
+    Time to implement (T)   36 minutes
     Est Delivered Bugs (B)  0
     Cyclomatic Complexity   20
     Maintainability (MI)    121
@@ -46,7 +46,7 @@ Program metrics:
 -----------  ----  ----
 00000-00003     4  0  
 00004-00012    15  0  
-00013-007FF   187  1842  
+00013-007FF   188  1841  
 00800-00FFF     0  2048  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  

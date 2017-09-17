@@ -1,7 +1,9 @@
 >>> Warning 208 "C:\DADOS\projeto\INCLUDES\teclado_4x4.h" Line 37(1,9): Function not void and does not return a value  scan_tec
+>>> Warning 208 "C:\DADOS\projeto\INCLUDES\teclado_4x4.h" Line 37(1,9): Function not void and does not return a value  scan_tec
+>>> Warning 208 "C:\DADOS\projeto\INCLUDES\teclado_4x4.h" Line 37(1,9): Function not void and does not return a value  scan_tec
 >>> Warning 208 "main.c" Line 86(1,12): Function not void and does not return a value  trata_tecla
->>> Warning 203 "main.c" Line 120(1,1): Condition always TRUE
->>> Warning 202 "main.c" Line 40(5,10): Variable never used:   count
+>>> Warning 203 "main.c" Line 121(1,1): Condition always TRUE
+>>> Warning 202 "main.c" Line 40(7,12): Variable never used:   count
 >>> Warning 202 "C:\DADOS\projeto\INCLUDES\teclado_4x4.h" Line 29(7,15): Variable never used:   temp_key
       Memory usage:   ROM=3%      RAM=4% - 4%
-      0 Errors,  5 Warnings.
+      0 Errors,  7 Warnings.

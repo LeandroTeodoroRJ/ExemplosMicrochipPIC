@@ -26,18 +26,18 @@
 //****************************************************************************
 //****************************  ENTRADAS  ************************************
 //PORTAS DO TECLADO
-#define  tris_tec    tris_d   //indica qual o port do teclado
-#define  port_tec    port_d
+#define  tris_tec    tris_b   //indica qual o port do teclado
+#define  port_tec    port_b
 
 //*****************************  SAÍDAS  *************************************
-#define  saida       port_b
+#define  saida       port_d
 
 //****************************************************************************
 //                        CONSTANTES E VARIÁVEIS
 //****************************************************************************
 int   w_temp;
 int   status_temp;
-int count;
+int   count;
 
 
 //***************************************************************************
@@ -86,7 +86,7 @@ swapf w_temp,w
 trata_tecla(){    
       if (key_trata){      
       saida = new_key;
-      key_trata=0;
+      key_trata = false;
       }
 }
 
@@ -101,19 +101,23 @@ void main(){
       setup_timer_1(t1_internal|t1_div_by_8); 
       setup_wdt(wdt_288ms);
       disable_interrupts(global);
-      bit_set(option_reg,7);    //sem pull-up
+      port_b_pullups(true);   //Ativa os pullups do port B    
 
 //    Configuração do tris
 //    Bit porta: 76543210
       tris_a = 0b00000000;
-      tris_b = 0b00000000; 
+//      tris_b = 0b00000000;  //Definido no arquivo drive do teclado
       tris_c = 0b00000000;
-//      tris_d = 0b00000000;   //Definido no arquivo drive do teclado
+      tris_d = 0b00000000;   
       tris_e = 0b00000000;
       
 
 //******************** INICIALIZAÇÃO DE VARIÁVEIS ***************************
+      key_trata = false;
       saida = 0;
+//      delay_ms(500);
+//      saida = 255;
+//      delay_ms(500);
 //****************************************************************************
 //                             INICIO DO LOOP
 //****************************************************************************
