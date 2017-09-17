@@ -1,13 +1,13 @@
 /****************************************************************
-		ROTINA DE SCANEAMENTO DE TECLAS DE UMA MATRIZ
-		4X4 USANDO UM PORT DO mC  09.05.06
+      ROTINA DE SCANEAMENTO DE TECLAS DE UMA MATRIZ
+      4X4 USANDO UM PORT DO mC  09.05.06
 
 VARIAVEIS:
          KEY_TRATA = 1 INDICA QUE EXISTE UMA TECLA NOVA
-			KEY_TRATA = 0 INDICA QUE NAO EXISTE UMA TECLA NOVA
-			NEW_KEY => RECEBE O VALOR DA TECLA DIGITADA, AS TECLAS VARIAM NO INTERVALO DE 01 ATÉ 0F
-			KEY_PRESS = 0 NENHUMA TECLA PRECIONADA
-			KEY_PRESS = 1 TECLA PRECIONADA
+         KEY_TRATA = 0 INDICA QUE NAO EXISTE UMA TECLA NOVA
+         NEW_KEY => RECEBE O VALOR DA TECLA DIGITADA, AS TECLAS VARIAM NO INTERVALO DE 01 ATÉ 0F
+         KEY_PRESS = 0 NENHUMA TECLA PRECIONADA
+         KEY_PRESS = 1 TECLA PRECIONADA
 
 FUNÇÕES:
          void scan_tec(void) ->  INICIA A BUSCA POR UMA TECLA PRECIONADA                                 
@@ -39,24 +39,18 @@ scan_tec(){
        port_tec=0b11110000;
        if (port_tec == 0b11110000){
        key_press = 0;         //sai sem nenhuma pressionada
-       #asm
-       RETURN
-       #endasm
+       return;
        }
 
        delay_ms(20);                   //debouce
 
        if (port_tec == 0b11110000){
        key_press = 0;         //verifica se não foi ruido.
-       #asm
-       RETURN
-       #endasm
+       return;
        }
 
        if (!key_trata & key_press){       //já tratou a tecla ou esta
-       #asm                             //segurando?
-       RETURN
-       #endasm
+       return;
        }
 
        port_tec=0b11111110;         //primeira coluna
@@ -83,7 +77,7 @@ scan_tec(){
        if (!bit_test(port_tec,6)) new_key=linha3[3];
        if (!bit_test(port_tec,7)) new_key=linha4[3];
 
-	   key_press = 1;
+      key_press = 1;
        key_trata=1;
 }
 
