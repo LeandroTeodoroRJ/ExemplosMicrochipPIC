@@ -1,0 +1,62 @@
+
+ROM used: 461 (6%)
+          461 (6%) including unused fragments
+
+          0 Average locations per line
+          2 Average locations per statement
+
+RAM used: 28 (8%) at main() level
+          38 (10%) worst case
+
+Stack used: 6 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  197    39  19  main.c
+  298     0   0  ..\..\..\Program Files (x86)\PICC\devices\16F877.h
+  409   121  60  ..\..\..\Program Files (x86)\PICC\drivers\string.h
+   28     0   0  ..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+   28     0   0  ..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+   80     0   0  ..\INCLUDES\16f8x_registradores.h
+  173    41  20  ..\includes\lcd.h
+----- -----
+ 1213   201 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     20   4   1             @delay_ms1
+0      8   2   0   119  2.1  @const218
+0     23   5   1   260  1.9  lcd_envia_nibble
+0     26   6   3   176  2.7  lcd_envia_byte
+0     43   9   2   433  4.3  lcd_ini
+0     18   4   4   186  5.5  lcd_pos_xy
+0     40   9   1   290  4.1  lcd_escreve
+0     15   3   0   117  2.3  interrupcao
+0    172  37   2   896  5.3  MAIN
+0     12   3   0   896  5.3  @const236
+0      8   2   0             @const237
+0     72  16   3             @PSTRINGC7_231
+
+Program metrics:
+    Functions               9
+    Statements              201
+    Comments                406
+    Volume (V)              5142
+    Difficilty (D)          32.9
+    Effort to implement (E) 168936
+    Time to implement (T)   2 hours, 36 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   8
+    Maintainability (MI)    46
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00012    15  0  
+00013-007FF   442  1587  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+
