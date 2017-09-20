@@ -1,0 +1,12 @@
+ÀÄmain
+   ÃÄMAIN  0/237  Ram=0
+   ³  ÃÄ??0??
+   ³  ÃÄ@I2C_WRITE_1  0/74  Ram=1
+   ³  ÃÄ@I2C_WRITE_1  0/74  Ram=1
+   ³  ÃÄ@I2C_WRITE_1  0/74  Ram=1
+   ³  ÃÄ@delay_ms1  0/22  Ram=1
+   ³  ÃÄ@I2C_WRITE_1  0/74  Ram=1
+   ³  ÃÄ@I2C_WRITE_1  0/74  Ram=1
+   ³  ÃÄ@I2C_WRITE_1  0/74  Ram=1
+   ³  ÀÄ@I2C_READ_1  0/71  Ram=3
+   ÀÄinterrupcao  0/15  Ram=0
