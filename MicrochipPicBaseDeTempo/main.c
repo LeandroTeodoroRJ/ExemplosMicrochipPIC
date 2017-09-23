@@ -17,6 +17,18 @@ dado o modo sincrozinado.
 7) Quando utilizado o timer1 com o módulo CCP deve-se ter cuidado, pois algumas
 funções do CCP podem resetar o timer1.
 
+Clock = 20e6Hz
+Ciclo de maq = 20e6Hz/4 = 5e6 => 200ns
+Timer 0:
+Estouro = TMR0 x prescaler x ciclo de maq
+        = 256 x 1 x 200ns
+        = 51us
+
+Timer 1:
+Estouro = TMR1 x prescaler x ciclo de maq
+        = 65536 x 2 x 200ns
+        = 26ms
+
 */
 //****************************************************************************
 
@@ -68,7 +80,7 @@ short int   sinal_longo_flag;
 //****************************************************************************
 //#inline                     //descomentar se for usar o in_line
 estouro_timer0(){
-   if (count == 200){          //Base de aprox 1ms
+   if (count == 20){          //Base de aprox 1ms
       if (sinal_curto_flag == true){   //Inverte a saída
          bit_clear(sinal_curto);
          sinal_curto_flag = false;
@@ -77,16 +89,17 @@ estouro_timer0(){
          bit_set(sinal_curto);
          sinal_curto_flag = true;
       }
-      t0if = false;                //Reseta o flag de interrupção do timer0
+//      t0if = false;                //Reseta o flag de interrupção do timer0
       count = 0;
    }
    else{
       count = count+1; 
    }
+t0if = false;                //Reseta o flag de interrupção do timer0
 }
 
 estouro_timer1(){
-   if (count_timer1 == 1){              //Base de aprox 50ms.
+   if (count_timer1 == 1){              //Base de aprox 200ms.
       if (sinal_longo_flag == true){    //Inverte a saída
          bit_clear(sinal_longo);
          sinal_longo_flag = false;
@@ -95,12 +108,13 @@ estouro_timer1(){
          bit_set(sinal_longo);
          sinal_longo_flag = true;
       }
-      tmr1if = false;           //Reseta o flag de interrupção do timer1
+//      tmr1if = false;           //Reseta o flag de interrupção do timer1
       count_timer1 = 0;
    }
    else{
       count_timer1 = count_timer1+1; 
    }
+tmr1if = false;           //Reseta o flag de interrupção do timer1
 }
 
 
@@ -144,7 +158,7 @@ swapf w_temp,w
 void main(){
 //********************** CONFIGURAÇÕES INICIAIS *****************************
       setup_timer_0(rtcc_internal); //clock interno
-      setup_timer_1(t1_internal|t1_div_by_2);//clock interno, prescaler 2
+      setup_timer_1(t1_internal|t1_div_by_8);//clock interno, prescaler 2
       setup_ccp1(ccp_off); //Desliga os modos de captura
       setup_ccp2(ccp_off);
 //      setup_wdt(wdt_288ms);
