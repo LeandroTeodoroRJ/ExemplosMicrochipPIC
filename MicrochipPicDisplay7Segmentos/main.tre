@@ -1,0 +1,7 @@
+ÀÄmain
+   ÃÄMAIN  0/104  Ram=0
+   ³  ÀÄ??0??
+   ÀÄinterrupcao  0/96  Ram=1
+      ÃÄestouro_timer0  (Inline)  Ram=0
+      ³  ÀÄmostra_display  (Inline)  Ram=3
+      ÀÄestouro_timer1  (Inline)  Ram=0
