@@ -1,7 +1,8 @@
 ÀÄmain
-   ÃÄMAIN  0/104  Ram=0
+   ÃÄMAIN  0/54  Ram=0
    ³  ÀÄ??0??
-   ÀÄinterrupcao  0/96  Ram=1
+   ÀÄinterrupcao  0/94  Ram=1
       ÃÄestouro_timer0  (Inline)  Ram=0
       ³  ÀÄmostra_display  (Inline)  Ram=3
+      ³     ÀÄ@const220  0/29  Ram=0
       ÀÄestouro_timer1  (Inline)  Ram=0

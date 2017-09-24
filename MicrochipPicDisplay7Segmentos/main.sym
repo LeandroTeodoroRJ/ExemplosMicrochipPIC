@@ -48,14 +48,13 @@
 023     status_temp
 024-025 count
 026-027 count_timer1
-028-040 CONV_DISP
-041     count_disp_control
-042     count_disp
-043     @TRIS_C
-044     mostra_display.disp
-044     interrupcao.@SCRATCH1
-045     mostra_display.dot
-046     mostra_display.value
+028     count_disp_control
+029     count_disp
+02A     @TRIS_C
+02B     mostra_display.disp
+02B     interrupcao.@SCRATCH1
+02C     mostra_display.dot
+02D     mostra_display.value
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -88,12 +87,13 @@
 10D-10E @READ_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
+0062  CONV_DISP
 000E  estouro_timer0
-0048  estouro_timer1
+0046  estouro_timer1
 0004  interrupcao
 001A  mostra_display
-0064  MAIN
-0064  @cinit
+007F  MAIN
+007F  @cinit
 
 
 User Memory space: 

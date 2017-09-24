@@ -1,51 +1,52 @@
 
-ROM used: 204 (2%)
-          204 (2%) including unused fragments
+ROM used: 181 (2%)
+          181 (2%) including unused fragments
 
           0 Average locations per line
           1 Average locations per statement
 
-RAM used: 41 (11%) at main() level
-          44 (12%) worst case
+RAM used: 16 (4%) at main() level
+          19 (5%) worst case
 
-Stack used: 1 worst case (out of 8 total available)
+Stack used: 2 worst case (out of 8 total available)
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  254    86  42  main.c
+  280    61  34  main.c
   298     0   0  ..\..\..\Program Files (x86)\PICC\devices\16F877.h
-  409   121  58  ..\..\..\Program Files (x86)\PICC\drivers\string.h
+  409   121  66  ..\..\..\Program Files (x86)\PICC\drivers\string.h
    28     0   0  ..\..\..\Program Files (x86)\PICC\drivers\stddef.h
    28     0   0  ..\..\..\Program Files (x86)\PICC\drivers\ctype.h
    80     0   0  ..\INCLUDES\16f8x_registradores.h
 ----- -----
- 1097   207 Total
+ 1123   182 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
+0     29  16   0   235  4.5  @const220
  Inline        0   235  4.5  estouro_timer0
  Inline        0   185  4.0  estouro_timer1
-0     96  47   1   231  3.3  interrupcao
+0     94  52   1   231  3.3  interrupcao
  Inline        3   433  4.5  mostra_display
-0    104  51   0  1584  3.4  MAIN
+0     54  30   0   434  2.8  MAIN
 
 Program metrics:
-    Functions               5
-    Statements              207
-    Comments                321
-    Volume (V)              3526
-    Difficilty (D)          20.1
-    Effort to implement (E) 70922
-    Time to implement (T)   1 hours, 6 minutes
+    Functions               6
+    Statements              182
+    Comments                323
+    Volume (V)              2610
+    Difficilty (D)          24.1
+    Effort to implement (E) 62812
+    Time to implement (T)   58 minutes
     Est Delivered Bugs (B)  1
-    Cyclomatic Complexity   8
-    Maintainability (MI)    69
+    Cyclomatic Complexity   10
+    Maintainability (MI)    37
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-00063    96  0  
-00064-007FF   104  1844  
+00004-00061    94  0  
+00062-007FF    83  1867  
 00800-00FFF     0  2048  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  

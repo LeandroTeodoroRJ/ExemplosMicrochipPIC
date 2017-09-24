@@ -1,17 +1,17 @@
-CCS PCM C Compiler, Version 4.104, 5967               23-set-17 17:56
+CCS PCM C Compiler, Version 4.104, 5967               24-set-17 07:31
 
                Filename: C:\DADOS\projeto\MicrochipPicDisplay7Segmentos\main.lst
 
-               ROM used: 204 words (2%)
+               ROM used: 181 words (2%)
                          Largest free fragment is 2048
-               RAM used: 41 (11%) at main() level
-                         44 (12%) worst case
-               Stack:    1 worst case (0 in main + 1 for interrupts)
+               RAM used: 16 (4%) at main() level
+                         19 (5%) worst case
+               Stack:    2 worst case (0 in main + 2 for interrupts)
 
 *
 0000:  MOVLW  00
 0001:  MOVWF  0A
-0002:  GOTO   064
+0002:  GOTO   07F
 0003:  NOP
 .................... //**************************************************************************** 
 .................... //                   EXEMPLO DISPLAYS DE 7 SEGMENTOS 
@@ -404,9 +404,9 @@ CCS PCM C Compiler, Version 4.104, 5967               23-set-17 17:56
 ....................    char *beg, *end; 
 ....................    static char *save; 
 *
-006D:  BCF    03.5
-006E:  CLRF   20
-006F:  CLRF   21
+0088:  BCF    03.5
+0089:  CLRF   20
+008A:  CLRF   21
 ....................  
 ....................    beg = (s1)? s1: save; 
 ....................    beg += strspn(beg, s2); 
@@ -609,9 +609,65 @@ CCS PCM C Compiler, Version 4.104, 5967               23-set-17 17:56
 .................... int   status_temp; 
 .................... long int   count; 
 .................... unsigned long int   count_timer1; 
-.................... int   CONV_DISP[25]; 
 .................... int   count_disp_control; 
 .................... int   count_disp; 
+.................... const int   CONV_DISP[25]={                    
+....................                    0b00111111, 
+....................                    0b00000110, 
+....................                    0b01011011, 
+....................                    0b01001111, 
+....................                    0b01100110, 
+....................                    0b01101101, 
+....................                    0b01111100, 
+....................                    0b00000111, 
+....................                    0b01111111, 
+....................                    0b01101111, 
+....................                    0b01110111, 
+....................                    0b00111001, 
+....................                    0b01011110, 
+....................                    0b01111001, 
+....................                    0b01110001, 
+....................                    0b01111101, 
+....................                    0b01110110, 
+....................                    0b00011110, 
+....................                    0b00111000, 
+....................                    0b01010100, 
+....................                    0b01011100, 
+....................                    0b01110011, 
+....................                    0b01010000, 
+....................                    0b01111000, 
+....................                    0b00011100 
+....................                            }; 
+.................... /* 
+....................       //Conversão para o display de 7 segmentos 
+....................       //      LEDS:  PGFEDCBA        Onde P=ponto 
+....................       CONV_DISP[0]=0b00111111; //0 
+....................       CONV_DISP[1]=0b00000110; //1 
+....................       CONV_DISP[2]=0b01011011; //2 
+....................       CONV_DISP[3]=0b01001111; //3 
+....................       CONV_DISP[4]=0b01100110; //4 
+....................       CONV_DISP[5]=0b01101101; //5 
+....................       CONV_DISP[6]=0b01111100; //6 
+....................       CONV_DISP[7]=0b00000111; //7 
+....................       CONV_DISP[8]=0b01111111; //8 
+....................       CONV_DISP[9]=0b01101111; //9 
+....................      CONV_DISP[10]=0b01110111; //A 
+....................      CONV_DISP[11]=0b00111001; //C 
+....................      CONV_DISP[12]=0b01011110; //d 
+....................      CONV_DISP[13]=0b01111001; //E 
+....................      CONV_DISP[14]=0b01110001; //F 
+....................      CONV_DISP[15]=0b01111101; //G 
+....................      CONV_DISP[16]=0b01110110; //H 
+....................      CONV_DISP[17]=0b00011110; //J 
+....................      CONV_DISP[18]=0b00111000; //L 
+....................      CONV_DISP[19]=0b01010100; //n 
+....................      CONV_DISP[20]=0b01011100; //o 
+....................      CONV_DISP[21]=0b01110011; //P 
+....................      CONV_DISP[22]=0b01010000; //r 
+....................      CONV_DISP[23]=0b01111000; //t 
+....................      CONV_DISP[24]=0b00011100; //u 
+.................... */ 
+....................  
 ....................  
 .................... //*************************************************************************** 
 .................... //                               DRIVES 
@@ -630,73 +686,73 @@ CCS PCM C Compiler, Version 4.104, 5967               23-set-17 17:56
 000E:  MOVF   24,W
 000F:  SUBLW  32
 0010:  BTFSS  03.2
-0011:  GOTO   041
+0011:  GOTO   03F
 0012:  MOVF   25,F
 0013:  BTFSS  03.2
-0014:  GOTO   041
+0014:  GOTO   03F
 ....................       mostra_display(count_disp_control, false, count_disp); 
-0015:  MOVF   41,W
-0016:  MOVWF  44
-0017:  CLRF   45
-0018:  MOVF   42,W
-0019:  MOVWF  46
+0015:  MOVF   28,W
+0016:  MOVWF  2B
+0017:  CLRF   2C
+0018:  MOVF   29,W
+0019:  MOVWF  2D
 ....................       count_disp_control = count_disp_control+1; 
 *
-0038:  MOVLW  01
-0039:  ADDWF  41,F
+0036:  MOVLW  01
+0037:  ADDWF  28,F
 ....................       if (count_disp_control > 3) count_disp_control = 0; 
-003A:  MOVF   41,W
-003B:  SUBLW  03
-003C:  BTFSS  03.0
-003D:  CLRF   41
+0038:  MOVF   28,W
+0039:  SUBLW  03
+003A:  BTFSS  03.0
+003B:  CLRF   28
 ....................       count = 0; 
-003E:  CLRF   25
-003F:  CLRF   24
+003C:  CLRF   25
+003D:  CLRF   24
 ....................    } 
 ....................    else{ 
-0040:  GOTO   045
+003E:  GOTO   043
 ....................       count = count+1; 
-0041:  MOVLW  01
-0042:  ADDWF  24,F
-0043:  BTFSC  03.0
-0044:  INCF   25,F
+003F:  MOVLW  01
+0040:  ADDWF  24,F
+0041:  BTFSC  03.0
+0042:  INCF   25,F
 ....................    } 
 .................... t0if = false;                //Reseta o flag de interrupção do timer0 
-0045:  BCF    0B.2
+0043:  BCF    0B.2
 .................... } 
 ....................  
 .................... void estouro_timer1(){ 
 ....................    if (count_timer1 == 20){              //Base de aprox 1s. 
 *
-0048:  MOVF   26,W
-0049:  SUBLW  14
-004A:  BTFSS  03.2
-004B:  GOTO   058
-004C:  MOVF   27,F
-004D:  BTFSS  03.2
-004E:  GOTO   058
+0046:  MOVF   26,W
+0047:  SUBLW  14
+0048:  BTFSS  03.2
+0049:  GOTO   056
+004A:  MOVF   27,F
+004B:  BTFSS  03.2
+004C:  GOTO   056
 ....................       count_disp = count_disp+1; 
-004F:  MOVLW  01
-0050:  ADDWF  42,F
+004D:  MOVLW  01
+004E:  ADDWF  29,F
 ....................          if (count_disp > 24) count_disp = 0; 
-0051:  MOVF   42,W
-0052:  SUBLW  18
-0053:  BTFSS  03.0
-0054:  CLRF   42
+004F:  MOVF   29,W
+0050:  SUBLW  18
+0051:  BTFSS  03.0
+0052:  CLRF   29
 ....................       count_timer1 = 0; 
-0055:  CLRF   27
-0056:  CLRF   26
+0053:  CLRF   27
+0054:  CLRF   26
 ....................    } 
 ....................    else{ 
-0057:  GOTO   05C
+0055:  GOTO   05A
 ....................       count_timer1 = count_timer1+1;  
-0058:  MOVLW  01
-0059:  ADDWF  26,F
-005A:  BTFSC  03.0
-005B:  INCF   27,F
+0056:  MOVLW  01
+0057:  ADDWF  26,F
+0058:  BTFSC  03.0
+0059:  INCF   27,F
 ....................    } 
 .................... tmr1if = false;           //Reseta o flag de interrupção do timer1 
-005C:  BCF    0C.0
+005A:  BCF    0C.0
 .................... } 
 .................... //**************************************************************************** 
 .................... //                           INTERRUPÇÕES 
@@ -723,30 +779,30 @@ CCS PCM C Compiler, Version 4.104, 5967               23-set-17 17:56
 ....................  
 .................... if (intcon,t0if == true) estouro_timer0(); //Trata interrupção timer0 
 000C:  BTFSS  0B.2
-000D:  GOTO   046
+000D:  GOTO   044
 .................... if (pir1,tmr1if == true) estouro_timer1(); //Trata interrupção timer1 
 *
-0046:  BTFSS  0C.0
-0047:  GOTO   05D
+0044:  BTFSS  0C.0
+0045:  GOTO   05B
 ....................  
 .................... //*************************************************************************** 
 .................... //                          FIM DA INTERRUPCAO 
 .................... //*************************************************************************** 
 .................... enable_interrupts(global); 
 *
-005D:  MOVLW  C0
-005E:  IORWF  0B,F
+005B:  MOVLW  C0
+005C:  IORWF  0B,F
 ....................  
 .................... #asm 
 .................... swapf status_temp,w 
-005F:  SWAPF  23,W
+005D:  SWAPF  23,W
 .................... movwf status 
-0060:  MOVWF  03
+005E:  MOVWF  03
 .................... swapf w_temp,f 
-0061:  SWAPF  22,F
+005F:  SWAPF  22,F
 .................... swapf w_temp,w 
-0062:  SWAPF  22,W
-0063:  RETFIE
+0060:  SWAPF  22,W
+0061:  RETFIE
 .................... #endasm 
 ....................  
 .................... } 
@@ -757,48 +813,46 @@ CCS PCM C Compiler, Version 4.104, 5967               23-set-17 17:56
 .................... void mostra_display(int disp, short int dot, int value){     
 .................... DISPLAY_BUS = CONV_DISP[value]; 
 *
-001A:  MOVLW  28
-001B:  ADDWF  46,W
-001C:  MOVWF  04
-001D:  BCF    03.7
-001E:  MOVF   00,W
-001F:  MOVWF  06
+001A:  MOVF   2D,W
+001B:  CALL   062
+001C:  MOVWF  78
+001D:  MOVWF  06
 .................... if (dot == true) bit_set(PONTO); 
-0020:  DECFSZ 45,W
-0021:  GOTO   023
-0022:  BSF    06.7
+001E:  DECFSZ 2C,W
+001F:  GOTO   021
+0020:  BSF    06.7
 .................... if (dot==true){ 
-0023:  DECFSZ 45,W
-0024:  GOTO   027
+0021:  DECFSZ 2C,W
+0022:  GOTO   025
 ....................    bit_set(PONTO); 
-0025:  BSF    06.7
+0023:  BSF    06.7
 .................... } 
 .................... else{ 
-0026:  GOTO   028
+0024:  GOTO   026
 ....................    bit_clear(PONTO); 
-0027:  BCF    06.7
+0025:  BCF    06.7
 .................... } 
 .................... bit_clear(DISPLAY_COM,DISPLAY_A); 
-0028:  BCF    07.0
+0026:  BCF    07.0
 .................... bit_clear(DISPLAY_COM,DISPLAY_B); 
-0029:  BCF    07.1
+0027:  BCF    07.1
 .................... bit_clear(DISPLAY_COM,DISPLAY_C); 
-002A:  BCF    07.2
+0028:  BCF    07.2
 .................... bit_clear(DISPLAY_COM,DISPLAY_D); 
-002B:  BCF    07.3
+0029:  BCF    07.3
 .................... bit_set(DISPLAY_COM,disp); 
-002C:  MOVLW  01
-002D:  MOVWF  77
-002E:  MOVF   44,W
-002F:  MOVWF  78
-0030:  BTFSC  03.2
-0031:  GOTO   036
-0032:  BCF    03.0
-0033:  RLF    77,F
-0034:  DECFSZ 78,F
-0035:  GOTO   032
-0036:  MOVF   77,W
-0037:  IORWF  07,F
+002A:  MOVLW  01
+002B:  MOVWF  77
+002C:  MOVF   2B,W
+002D:  MOVWF  78
+002E:  BTFSC  03.2
+002F:  GOTO   034
+0030:  BCF    03.0
+0031:  RLF    77,F
+0032:  DECFSZ 78,F
+0033:  GOTO   030
+0034:  MOVF   77,W
+0035:  IORWF  07,F
 .................... } 
 ....................  
 ....................  
@@ -808,168 +862,88 @@ CCS PCM C Compiler, Version 4.104, 5967               23-set-17 17:56
 ....................  
 .................... void main(){ 
 *
-0064:  CLRF   04
-0065:  BCF    03.7
-0066:  MOVLW  1F
-0067:  ANDWF  03,F
-0068:  BSF    03.5
-0069:  BSF    1F.0
-006A:  BSF    1F.1
-006B:  BSF    1F.2
-006C:  BCF    1F.3
+007F:  CLRF   04
+0080:  BCF    03.7
+0081:  MOVLW  1F
+0082:  ANDWF  03,F
+0083:  BSF    03.5
+0084:  BSF    1F.0
+0085:  BSF    1F.1
+0086:  BSF    1F.2
+0087:  BCF    1F.3
 .................... //********************** CONFIGURAÇÕES INICIAIS ***************************** 
 ....................       setup_timer_0(rtcc_internal); //clock interno 
 *
-0072:  BSF    03.5
-0073:  MOVF   01,W
-0074:  ANDLW  C0
-0075:  MOVWF  01
+008D:  BSF    03.5
+008E:  MOVF   01,W
+008F:  ANDLW  C0
+0090:  MOVWF  01
 ....................       setup_timer_1(t1_internal|t1_div_by_8);  
-0076:  MOVLW  B5
-0077:  BCF    03.5
-0078:  MOVWF  10
+0091:  MOVLW  B5
+0092:  BCF    03.5
+0093:  MOVWF  10
 .................... //      setup_wdt(wdt_288ms); 
 ....................       setup_ccp1(ccp_off); //Desliga os modos de captura 
-0079:  BSF    43.2
-007A:  MOVF   43,W
-007B:  BSF    03.5
-007C:  MOVWF  07
-007D:  BCF    03.5
-007E:  CLRF   17
+0094:  BSF    2A.2
+0095:  MOVF   2A,W
+0096:  BSF    03.5
+0097:  MOVWF  07
+0098:  BCF    03.5
+0099:  CLRF   17
 ....................       setup_ccp2(ccp_off); 
-007F:  BSF    43.1
-0080:  MOVF   43,W
-0081:  BSF    03.5
-0082:  MOVWF  07
-0083:  BCF    03.5
-0084:  CLRF   1D
+009A:  BSF    2A.1
+009B:  MOVF   2A,W
+009C:  BSF    03.5
+009D:  MOVWF  07
+009E:  BCF    03.5
+009F:  CLRF   1D
 ....................       enable_interrupts(global); 
-0085:  MOVLW  C0
-0086:  IORWF  0B,F
+00A0:  MOVLW  C0
+00A1:  IORWF  0B,F
 ....................       enable_interrupts(int_timer0); 
-0087:  BSF    0B.5
+00A2:  BSF    0B.5
 ....................       enable_interrupts(int_timer1); 
-0088:  BSF    03.5
-0089:  BSF    0C.0
+00A3:  BSF    03.5
+00A4:  BSF    0C.0
 ....................       port_b_pullups(false);    //sem pull-up 
-008A:  BSF    01.7
+00A5:  BSF    01.7
 ....................  
 .................... //    Configuração do tris 
 .................... //    Bit porta: 76543210 
 ....................       tris_a = 0b00000000; 
-008B:  CLRF   05
+00A6:  CLRF   05
 ....................       tris_b = 0b00000000; 
-008C:  CLRF   06
+00A7:  CLRF   06
 ....................       tris_c = 0b00000000; 
-008D:  CLRF   07
+00A8:  CLRF   07
 ....................       tris_d = 0b00000000; 
-008E:  CLRF   08
+00A9:  CLRF   08
 ....................       tris_e = 0b00000000; 
-008F:  CLRF   09
+00AA:  CLRF   09
 ....................        
 ....................        
 .................... //******************** INICIALIZAÇÃO DE VARIÁVEIS *************************** 
 ....................       count = 0; 
-0090:  BCF    03.5
-0091:  CLRF   25
-0092:  CLRF   24
+00AB:  BCF    03.5
+00AC:  CLRF   25
+00AD:  CLRF   24
 ....................       count_timer1 = 0; 
-0093:  CLRF   27
-0094:  CLRF   26
+00AE:  CLRF   27
+00AF:  CLRF   26
 ....................       count_disp_control = 0; 
-0095:  CLRF   41
+00B0:  CLRF   28
 ....................       count_disp = 0; 
-0096:  CLRF   42
-....................        
-....................       //Conversão para o display de 7 segmentos 
-....................       //      LEDS:  PGFEDCBA        Onde P=ponto 
-....................       CONV_DISP[0]=0b00111111; //0 
-0097:  MOVLW  3F
-0098:  MOVWF  28
-....................       CONV_DISP[1]=0b00000110; //1 
-0099:  MOVLW  06
-009A:  MOVWF  29
-....................       CONV_DISP[2]=0b01011011; //2 
-009B:  MOVLW  5B
-009C:  MOVWF  2A
-....................       CONV_DISP[3]=0b01001111; //3 
-009D:  MOVLW  4F
-009E:  MOVWF  2B
-....................       CONV_DISP[4]=0b01100110; //4 
-009F:  MOVLW  66
-00A0:  MOVWF  2C
-....................       CONV_DISP[5]=0b01101101; //5 
-00A1:  MOVLW  6D
-00A2:  MOVWF  2D
-....................       CONV_DISP[6]=0b01111100; //6 
-00A3:  MOVLW  7C
-00A4:  MOVWF  2E
-....................       CONV_DISP[7]=0b00000111; //7 
-00A5:  MOVLW  07
-00A6:  MOVWF  2F
-....................       CONV_DISP[8]=0b01111111; //8 
-00A7:  MOVLW  7F
-00A8:  MOVWF  30
-....................       CONV_DISP[9]=0b01101111; //9 
-00A9:  MOVLW  6F
-00AA:  MOVWF  31
-....................      CONV_DISP[10]=0b01110111; //A 
-00AB:  MOVLW  77
-00AC:  MOVWF  32
-....................      CONV_DISP[11]=0b00111001; //C 
-00AD:  MOVLW  39
-00AE:  MOVWF  33
-....................      CONV_DISP[12]=0b01011110; //d 
-00AF:  MOVLW  5E
-00B0:  MOVWF  34
-....................      CONV_DISP[13]=0b01111001; //E 
-00B1:  MOVLW  79
-00B2:  MOVWF  35
-....................      CONV_DISP[14]=0b01110001; //F 
-00B3:  MOVLW  71
-00B4:  MOVWF  36
-....................      CONV_DISP[15]=0b01111101; //G 
-00B5:  MOVLW  7D
-00B6:  MOVWF  37
-....................      CONV_DISP[16]=0b01110110; //H 
-00B7:  MOVLW  76
-00B8:  MOVWF  38
-....................      CONV_DISP[17]=0b00011110; //J 
-00B9:  MOVLW  1E
-00BA:  MOVWF  39
-....................      CONV_DISP[18]=0b00111000; //L 
-00BB:  MOVLW  38
-00BC:  MOVWF  3A
-....................      CONV_DISP[19]=0b01010100; //n 
-00BD:  MOVLW  54
-00BE:  MOVWF  3B
-....................      CONV_DISP[20]=0b01011100; //o 
-00BF:  MOVLW  5C
-00C0:  MOVWF  3C
-....................      CONV_DISP[21]=0b01110011; //P 
-00C1:  MOVLW  73
-00C2:  MOVWF  3D
-....................      CONV_DISP[22]=0b01010000; //r 
-00C3:  MOVLW  50
-00C4:  MOVWF  3E
-....................      CONV_DISP[23]=0b01111000; //t 
-00C5:  MOVLW  78
-00C6:  MOVWF  3F
-....................      CONV_DISP[24]=0b00011100; //u 
-00C7:  MOVLW  1C
-00C8:  MOVWF  40
-....................        
-....................        
+00B1:  CLRF   29
 ....................        
 .................... //**************************************************************************** 
 .................... //                             INICIO DO LOOP 
 .................... //**************************************************************************** 
 ....................       while(1){   
 ....................       restart_wdt(); 
-00C9:  CLRWDT
+00B2:  CLRWDT
 ....................        
 ....................       } 
-00CA:  GOTO   0C9
+00B3:  GOTO   0B2
 .................... //********************************* FIM ************************************** 
 .................... } 
 ....................  
@@ -1022,7 +996,7 @@ CCS PCM C Compiler, Version 4.104, 5967               23-set-17 17:56
 ....................  
 ....................  
 ....................  
-00CB:  SLEEP
+00B4:  SLEEP
 
 Configuration Fuses:
    Word  1: 3F72   HS NOWDT PUT NOPROTECT BROWNOUT NOLVP NOCPD NOWRT NODEBUG
