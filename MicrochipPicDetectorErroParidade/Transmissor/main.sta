@@ -1,0 +1,62 @@
+
+ROM used: 287 (4%)
+          287 (4%) including unused fragments
+
+          0 Average locations per line
+          1 Average locations per statement
+
+RAM used: 14 (4%) at main() level
+          23 (6%) worst case
+
+Stack used: 3 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  215    45  21  main.c
+  298     0   0  ..\..\..\..\Program Files (x86)\PICC\devices\16F877.h
+  409   121  57  ..\..\..\..\Program Files (x86)\PICC\drivers\string.h
+   28     0   0  ..\..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+   28     0   0  ..\..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+   80     0   0  ..\..\INCLUDES\16f8x_registradores.h
+  168    46  22  ..\..\INCLUDES\usart.h
+----- -----
+ 1226   212 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     15   5   2    70  1.4  usart_baud_rate
+0     22   8   3   120  1.6  usart_int
+0     36  13   5   263  3.0  usart_config
+0      3   1   1    27  1.3  usart_tx
+ Inline        1   260  2.7  usart_rx
+ Inline        0    17  0.7  interrupt_rx_usart
+ Inline        1   183  3.6  recebe_dado_usart
+0     63  22   1   172  3.4  interrupcao
+0     11   4   2    99  3.0  gera_header
+0      9   3   1    47  1.3  trata_dado_serial
+0     40  14   4   225  5.0  gera_paridade
+0     84  29   1   494  2.9  MAIN
+
+Program metrics:
+    Functions               12
+    Statements              212
+    Comments                378
+    Volume (V)              3331
+    Difficilty (D)          31.4
+    Effort to implement (E) 104573
+    Time to implement (T)   1 hours, 37 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   9
+    Maintainability (MI)    128
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00042    63  0  
+00043-007FF   220  1761  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

@@ -1,0 +1,158 @@
+003     status
+004-005 @READ_PROGRAM_MEMORY8.P1
+004     @WRITE_PROGRAM_MEMORY8.P2
+005     port_a
+006     port_b
+006.3   trigger
+006.4   trigger_inv
+007     port_c
+008     port_d
+008     PSP_DATA
+009     port_e
+00B.0   rbif
+00B     intcon
+00B.1   intf
+00B.2   t0if
+00B.3   rbie
+00B.4   inte
+00B.5   t0ie
+00B.6   peie
+00B.7   gie
+00C.0   tmr1if
+00C     pir1
+00C.1   tmr2if
+00C.2   ccp1if
+00C.4   txif
+00C.5   rcif
+00C.6   cmif
+00C.7   eeif
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+018.0   rx9d
+018     rcsta
+018.1   oerr
+018.2   ferr
+018.3   adden
+018.4   cren
+018.5   sren
+018.6   rx9
+018.7   spen
+019     txreg
+01A     rcreg
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-021 strtok.save
+022     w_temp
+023     status_temp
+024.0   dado_recebido
+025     count
+026     dado_tx
+027     usart_rx_dado
+028     usart_int.tx_int
+028     usart_baud_rate.vel
+028     gera_paridade.dado
+028     trata_dado_serial.@SCRATCH1
+028     MAIN.@SCRATCH1
+029     gera_paridade.count
+029     usart_int.rx_int
+029     usart_tx.dado
+029     gera_header.paridade
+029     usart_baud_rate.baud_rate
+02A     usart_int.int_9bit
+02A.0   gera_paridade.paridade
+02A     gera_header.header
+02B     gera_paridade.@SCRATCH1
+02D     usart_config.bits
+02D     usart_rx.@SCRATCH1
+02D     recebe_dado_usart.@SCRATCH1
+02D     interrupcao.@SCRATCH1
+02E     usart_config.syc
+02F     usart_config.tx_liga
+030     usart_config.usart_liga
+031     usart_config.rx_config
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+081     option_reg
+085     tris_a
+086     tris_b
+087     tris_c
+088     tris_d
+089     tris_e
+08C     pie1
+08C.0   tmr1ie
+08C.1   tmr2ie
+08C.2   ccp1ie
+08C.4   txie
+08C.5   rcie
+08C.6   cmie
+08C.7   eeie
+098     txsta
+098.0   tx9d
+098.1   trmt
+098.2   brgh
+098.4   sync
+098.5   txen
+098.6   tx9
+098.7   csrc
+099     spbrg
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+0067  usart_baud_rate
+0076  usart_int
+0043  usart_config
+00BF  usart_tx
+0012  usart_rx
+000C  interrupt_rx_usart
+0012  recebe_dado_usart
+0004  interrupcao
+00B4  gera_header
+00C2  trata_dado_serial
+008C  gera_paridade
+00CB  MAIN
+00CB  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\DADOS\projeto\MicrochipPicModuloRF\Transmissor\
+
+Project Files:
+    main.c
+    ..\..\..\..\Program Files (x86)\PICC\devices\16F877.h
+    ..\..\..\..\Program Files (x86)\PICC\drivers\string.h
+    ..\..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+    ..\..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+    ..\..\INCLUDES\16f8x_registradores.h
+    ..\..\INCLUDES\usart.h
+
+Units:
+    C:\DADOS\projeto\MicrochipPicModuloRF\Transmissor\main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.sta

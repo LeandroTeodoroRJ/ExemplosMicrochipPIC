@@ -1,0 +1,204 @@
+003     status
+004-005 @READ_PROGRAM_MEMORY8.P1
+004     @WRITE_PROGRAM_MEMORY8.P2
+005     port_a
+006     port_b
+006.3   trigger
+006.4   trigger_inv
+007     port_c
+008     port_d
+008     PSP_DATA
+009     port_e
+00B     intcon
+00B.0   rbif
+00B.1   intf
+00B.2   t0if
+00B.3   rbie
+00B.4   inte
+00B.5   t0ie
+00B.6   peie
+00B.7   gie
+00C     pir1
+00C.0   tmr1if
+00C.1   tmr2if
+00C.2   ccp1if
+00C.4   txif
+00C.5   rcif
+00C.6   cmif
+00C.7   eeif
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+018     rcsta
+018.0   rx9d
+018.1   oerr
+018.2   ferr
+018.3   adden
+018.4   cren
+018.5   sren
+018.6   rx9
+018.7   spen
+019     txreg
+01A     rcreg
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-021 strtok.save
+022     w_temp
+023     status_temp
+024.0   dado_recebido
+024.1   time_out_flag
+025     count
+026-027 dado_rx
+028     count_dado_rx
+029     count_timer1
+02A     usart_rx_dado
+02B     @TRIS_C
+02C     usart_int.tx_int
+02C     usart_baud_rate.vel
+02C     lcd_ini.conta
+02C     gera_paridade.dado
+02C     @PSTRINGC7_257.@SCRATCH1
+02C     trata_dado_serial.@SCRATCH1
+02C     MAIN.@SCRATCH1
+02D     gera_paridade.count
+02D     @PSTRINGCN7_257.P1
+02D     usart_baud_rate.baud_rate
+02D     @PRINTF_U_257.P1
+02D     usart_int.rx_int
+02D     lcd_ini.@SCRATCH1
+02D     @PSTRINGC7_257.@SCRATCH2
+02E     @PRINTF_U_257.P1
+02E     usart_int.int_9bit
+02E.0   gera_paridade.paridade
+02E     @PSTRINGC7_257.@SCRATCH3
+02E     @PSTRINGCN7_257.@SCRATCH1
+02F     @DIV88.P1
+02F     gera_paridade.@SCRATCH1
+02F     @PSTRINGCN7_257.@SCRATCH2
+030     @DIV88.P1
+030     @PSTRINGCN7_257.@SCRATCH3
+031     lcd_escreve.c
+031     @DIV88.@SCRATCH1
+032     lcd_pos_xy.x
+032     @delay_ms1.P1
+033     lcd_pos_xy.y
+034     lcd_pos_xy.endereco
+035     lcd_pos_xy.@SCRATCH1
+036     lcd_envia_byte.endereco
+037     lcd_envia_byte.dado
+038     lcd_envia_byte.@SCRATCH1
+039     lcd_envia_nibble.dado
+03A     recebe_dado_usart.header
+03A     interrupcao.@SCRATCH1
+03B     usart_config.bits
+03B     usart_rx.@SCRATCH1
+03B     recebe_dado_usart.@SCRATCH1
+03C     usart_config.syc
+03C     recebe_dado_usart.@SCRATCH2
+03D     usart_config.tx_liga
+03E     usart_config.usart_liga
+03F     usart_config.rx_config
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+081     option_reg
+085     tris_a
+086     tris_b
+087     tris_c
+088     tris_d
+089     tris_e
+08C.0   tmr1ie
+08C     pie1
+08C.1   tmr2ie
+08C.2   ccp1ie
+08C.4   txie
+08C.5   rcie
+08C.6   cmie
+08C.7   eeie
+098.0   tx9d
+098     txsta
+098.1   trmt
+098.2   brgh
+098.4   sync
+098.5   txen
+098.6   tx9
+098.7   csrc
+099     spbrg
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+00DF  @delay_ms1
+00BA  usart_baud_rate
+00C9  usart_int
+0086  usart_config
+0012  usart_rx
+000C  interrupt_rx_usart
+005E  INI_LCD
+00F3  lcd_envia_nibble
+010A  lcd_envia_byte
+0124  lcd_ini
+014F  lcd_pos_xy
+0161  lcd_escreve
+0351  tela_time_out
+0066  @const260
+0189  @PSTRINGC7_257
+02C4  tela1
+006C  @const263
+02DE  gera_paridade
+02DA  trata_dado_serial
+0073  @const269
+01CF  @PSTRINGCN7_257
+021D  @DIV88
+0232  @PRINTF_U_257
+0077  @const278
+007E  @const279
+00AA  reseta_usart
+0049  estouro_timer1
+0012  recebe_dado_usart
+0004  interrupcao
+0267  MAIN
+0267  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\DADOS\projeto\MicrochipPicModuloRF\Receptor\
+
+Project Files:
+    main.c
+    ..\..\..\..\Program Files (x86)\PICC\devices\16F877.h
+    ..\..\..\..\Program Files (x86)\PICC\drivers\string.h
+    ..\..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+    ..\..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+    ..\..\INCLUDES\16f8x_registradores.h
+    ..\..\INCLUDES\usart.h
+    ..\..\includes\lcd.h
+
+Units:
+    C:\DADOS\projeto\MicrochipPicModuloRF\Receptor\main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.sta

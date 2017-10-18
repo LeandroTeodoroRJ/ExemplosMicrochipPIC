@@ -1,0 +1,15 @@
+>>> Warning 208 "C:\DADOS\projeto\INCLUDES\usart.h" Line 16(1,16): Function not void and does not return a value  usart_baud_rate
+>>> Warning 208 "C:\DADOS\projeto\INCLUDES\usart.h" Line 36(1,10): Function not void and does not return a value  usart_int
+>>> Warning 208 "C:\DADOS\projeto\INCLUDES\usart.h" Line 63(1,13): Function not void and does not return a value  usart_config
+>>> Warning 208 "C:\DADOS\projeto\INCLUDES\usart.h" Line 78(1,9): Function not void and does not return a value  usart_tx
+>>> Warning 208 "C:\DADOS\projeto\INCLUDES\usart.h" Line 120(1,14): Function not void and does not return a value  usart_tx_9bit
+>>> Warning 208 "main.c" Line 65(1,14): Function not void and does not return a value  tela_time_out
+>>> Warning 208 "main.c" Line 73(1,6): Function not void and does not return a value  tela1
+>>> Warning 208 "main.c" Line 90(1,18): Function not void and does not return a value  trata_dado_serial
+>>> Warning 208 "main.c" Line 110(1,13): Function not void and does not return a value  reseta_usart
+>>> Warning 208 "main.c" Line 133(1,15): Function not void and does not return a value  estouro_timer1
+>>> Warning 208 "main.c" Line 147(1,18): Function not void and does not return a value  recebe_dado_usart
+>>> Warning 203 "main.c" Line 251(1,1): Condition always TRUE
+>>> Warning 216 "main.c" Line 309(0,1): Interrupts disabled during call to prevent re-entrancy:  (usart_config)
+      Memory usage:   ROM=11%      RAM=5% - 10%
+      0 Errors,  13 Warnings.
