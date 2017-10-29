@@ -1,0 +1,157 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00B.0   rbif
+00B.1   intf
+00B.2   t0if
+00B.3   rbie
+00B.4   inte
+00B.5   t0ie
+00B.6   peie
+00B.7   gie
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016-017 strtok.save
+018     usart_rx_buffer
+019.0   trata_serial_flag
+01A     @delay_ms1.P1
+01A     aguarda_transmissao.@SCRATCH1
+01B     usart_error.@SCRATCH1
+F80     port_a
+F81     port_b
+F82     port_c
+F83     port_d
+F83     PSP_DATA
+F84     port_e
+F92     tris_a
+F93     tris_b
+F94     tris_c
+F95     tris_d
+F96     tris_e
+F9D.0   tmr1ie
+F9D     pie1
+F9D.1   tmr2ie
+F9D.2   ccp1ie
+F9D.3   sspie
+F9D.4   txie
+F9D.5   rcie
+F9D.6   adie
+F9D.7   pspie
+F9E     pir1
+F9E.0   tmr1if
+F9E.1   tmr2if
+F9E.2   ccp1if
+F9E.3   sspif
+F9E.4   txif
+F9E.5   rcif
+F9E.6   adif
+F9E.7   pspif
+FAB.0   rx9d
+FAB     rcsta
+FAB.1   oerr
+FAB.2   ferr
+FAB.3   adden
+FAB.4   cren
+FAB.5   sren
+FAB.6   rx9
+FAB.7   spen
+FAC     txsta
+FAC.0   tx9d
+FAC.1   trmt
+FAC.2   brgh
+FAC.3   sendb
+FAC.4   sync
+FAC.5   txen
+FAC.6   tx9
+FAC.7   csrc
+FAD     txreg
+FAE     rcreg
+FAF     spbrg
+FB0     spbrgh
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FD8     status
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF2     intcon
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0106  @delay_ms1
+00F2  @PUTCHARI_BIU_1
+0096  usart_error
+00FA  tx_usart_complete
+00C6  recebe_dado_usart
+00D4  rda_isr
+013E  trata_dado_serial
+012E  aguarda_transmissao
+014C  MAIN
+014C  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\DADOS\projeto\MicrochipPic18AsyncUsart\
+
+Project Files:
+    main.c
+    ..\..\..\Program Files (x86)\PICC\devices\18F4520.h
+    ..\..\..\Program Files (x86)\PICC\drivers\string.h
+    ..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+    ..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+    ..\INCLUDES\18F4520_registradores.h
+    ..\INCLUDES\usart18.h
+
+Units:
+    C:\DADOS\projeto\MicrochipPic18AsyncUsart\main (main)
+
+Compiler Settings:
+    Processor:      PIC18F4520
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX32:      main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.sta

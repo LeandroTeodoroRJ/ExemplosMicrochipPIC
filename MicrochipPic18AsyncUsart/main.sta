@@ -1,0 +1,57 @@
+
+ROM used: 460 (1%)
+          460 (1%) including unused fragments
+
+          0 Average locations per line
+          3 Average locations per statement
+
+RAM used: 26 (2%) at main() level
+          28 (2%) worst case
+
+Stack used: 4 worst case (out of 31 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  155    46  25  main.c
+  457     0   0  ..\..\..\Program Files (x86)\PICC\devices\18F4520.h
+  409   121  67  ..\..\..\Program Files (x86)\PICC\drivers\string.h
+   28     0   0  ..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+   28     0   0  ..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+   81     0   0  ..\INCLUDES\18F4520_registradores.h
+   56    14   8  ..\INCLUDES\usart18.h
+----- -----
+ 1214   181 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     40   4   1             @delay_ms1
+0      8   1   0   119  2.1  @PUTCHARI_BIU_1
+0     48   5   1   204  3.1  usart_error
+0     12   1   0    16  1.0  tx_usart_complete
+0     14   2   0    47  1.8  recebe_dado_usart
+0     30   3   0   134  3.0  rda_isr
+0     14   2   0    85  2.9  trata_dado_serial
+0     16   2   1    45  1.7  aguarda_transmissao
+0    132  14   0   685  3.4  MAIN
+
+Program metrics:
+    Functions               8
+    Statements              181
+    Comments                378
+    Volume (V)              2015
+    Difficilty (D)          21.1
+    Effort to implement (E) 42552
+    Time to implement (T)   39 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   9
+    Maintainability (MI)    44
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-00094   142  0  
+00096-07FFE   314  32304  
+
+
+

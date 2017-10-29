@@ -1,0 +1,7 @@
+>>> Warning 208 "main.c" Line 51(1,18): Function not void and does not return a value  recebe_dado_usart
+>>> Warning 208 "main.c" Line 84(1,18): Function not void and does not return a value  trata_dado_serial
+>>> Warning 208 "main.c" Line 91(1,20): Function not void and does not return a value  aguarda_transmissao
+>>> Warning 203 "main.c" Line 139(1,1): Condition always TRUE
+>>> Warning 201 "main.c" Line 141(1,1): Assignment inside relational expression
+      Memory usage:   ROM=1%      RAM=2% - 2%
+      0 Errors,  5 Warnings.

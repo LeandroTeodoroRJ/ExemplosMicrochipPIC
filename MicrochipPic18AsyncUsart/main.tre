@@ -1,0 +1,35 @@
+ÀÄmain
+   ÃÄMAIN  0/132  Ram=0
+   ³  ÃÄ??0??
+   ³  ÃÄ@PUTCHARI_BIU_1  0/8  Ram=0
+   ³  ÃÄaguarda_transmissao  0/16  Ram=1
+   ³  ³  ÃÄtx_usart_complete  0/12  Ram=0
+   ³  ³  ÀÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@PUTCHARI_BIU_1  0/8  Ram=0
+   ³  ÃÄaguarda_transmissao  0/16  Ram=1
+   ³  ³  ÃÄtx_usart_complete  0/12  Ram=0
+   ³  ³  ÀÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@PUTCHARI_BIU_1  0/8  Ram=0
+   ³  ÃÄaguarda_transmissao  0/16  Ram=1
+   ³  ³  ÃÄtx_usart_complete  0/12  Ram=0
+   ³  ³  ÀÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@PUTCHARI_BIU_1  0/8  Ram=0
+   ³  ÃÄaguarda_transmissao  0/16  Ram=1
+   ³  ³  ÃÄtx_usart_complete  0/12  Ram=0
+   ³  ³  ÀÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@PUTCHARI_BIU_1  0/8  Ram=0
+   ³  ÃÄaguarda_transmissao  0/16  Ram=1
+   ³  ³  ÃÄtx_usart_complete  0/12  Ram=0
+   ³  ³  ÀÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@PUTCHARI_BIU_1  0/8  Ram=0
+   ³  ÃÄaguarda_transmissao  0/16  Ram=1
+   ³  ³  ÃÄtx_usart_complete  0/12  Ram=0
+   ³  ³  ÀÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@PUTCHARI_BIU_1  0/8  Ram=0
+   ³  ÃÄaguarda_transmissao  0/16  Ram=1
+   ³  ³  ÃÄtx_usart_complete  0/12  Ram=0
+   ³  ³  ÀÄ@delay_ms1  0/40  Ram=1
+   ³  ÀÄtrata_dado_serial  0/14  Ram=0
+   ÀÄrda_isr  0/30  Ram=0
+      ÃÄusart_error  0/48  Ram=1
+      ÀÄrecebe_dado_usart  0/14  Ram=0
