@@ -1,0 +1,237 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004-005 strtok.save
+006     w_temp
+007     status_temp
+008-011 var1
+00B.0   rbif
+00B.1   intf
+00B.2   t0if
+00B.3   rbie
+00B.4   inte
+00B.5   t0ie
+00B.6   peie
+00B.7   gie
+012     count
+013     var3
+014     var4
+015-018 var5
+019     var6
+01A-01D @PRINTF_E_251.P1
+01A-01D @PRINTF_L32D_251FPFPF.P2
+01A     @PRINTF_D_251.P3
+01A     lcd_init.i
+01A     @PSTRINGCN_251.P1
+01A     @PRINTF_U_251.P2
+01A     MAIN.@SCRATCH1
+01A     @PSTRINGC_251.@SCRATCH1
+01B     @PRINTF_U_251.P1
+01B     @PRINTF_D_251.P2
+01B     lcd_init.@SCRATCH1
+01B     @PSTRINGC_251.@SCRATCH2
+01B     @PSTRINGCN_251.@SCRATCH1
+01C     @PSTRINGCN_251.@SCRATCH2
+01C     @PRINTF_D_251.@SCRATCH1
+01D     @PRINTF_D_251.@SCRATCH2
+01E-021 @PRINTF_E_251.P1
+01E     @PRINTF_L32D_251FPFPF.P2
+01E     @PRINTF_D_251.@SCRATCH3
+01F     @PRINTF_D_251.@SCRATCH4
+01F     @PRINTF_L32D_251FPFPF.@SCRATCH1
+020     @DIV88.P1
+020     @PRINTF_L32D_251FPFPF.@SCRATCH2
+021     @DIV88.P1
+021     @PRINTF_L32D_251FPFPF.@SCRATCH3
+022     @DIV88.@SCRATCH1
+022     @PRINTF_L32D_251FPFPF.@SCRATCH4
+022     @PRINTF_E_251.@SCRATCH1
+023     @PRINTF_L32D_251FPFPF.@SCRATCH5
+023     @PRINTF_E_251.@SCRATCH2
+024     @PRINTF_L32D_251FPFPF.@SCRATCH6
+024     @PRINTF_E_251.@SCRATCH3
+025     @PRINTF_L32D_251FPFPF.@SCRATCH7
+025     @PRINTF_E_251.@SCRATCH4
+026     @PRINTF_L32D_251FPFPF.@SCRATCH8
+026     @PRINTF_E_251.@SCRATCH5
+027-02A @DIV3232.P1
+027-02A @MULFF.P2
+027-02A @FTOSD.P3
+027     @PRINTF_E_251.@SCRATCH6
+028     @PRINTF_E_251.@SCRATCH7
+029     @PRINTF_E_251.@SCRATCH8
+02A     @PRINTF_E_251.@SCRATCH9
+02B-02E @DIV3232.P1
+02B-02E @MULFF.P2
+02B     @FTOSD.@SCRATCH1
+02B     @PRINTF_E_251.@SCRATCH10
+02C     lcd_putc.c
+02D     lcd_gotoxy.x
+02D     @delay_ms1.P1
+02E     lcd_gotoxy.y
+02F     lcd_gotoxy.address
+02F     @MULFF.@SCRATCH1
+02F     @DIV3232.@SCRATCH1
+030     lcd_gotoxy.@SCRATCH1
+030     @MULFF.@SCRATCH2
+030     @DIV3232.@SCRATCH2
+031     lcd_send_byte.address
+031     @MULFF.@SCRATCH3
+031     @DIV3232.@SCRATCH3
+032     lcd_send_byte.n
+032     @DIV3232.@SCRATCH4
+033     lcd_read_byte.low
+033     lcd_send_byte.@SCRATCH1
+033     @DIV3232.@SCRATCH5
+034     lcd_send_nibble.n
+034     lcd_read_byte.high
+035     lcd_read_nibble.n
+035     lcd_read_byte.@SCRATCH1
+036     lcd_read_nibble.@SCRATCH1
+F80     port_a
+F81     port_b
+F82     port_c
+F83     PSP_DATA
+F83     port_d
+F84     port_e
+F92     tris_a
+F93     tris_b
+F94     tris_c
+F95     tris_d
+F96     tris_e
+F9D.0   tmr1ie
+F9D     pie1
+F9D.1   tmr2ie
+F9D.2   ccp1ie
+F9D.3   sspie
+F9D.4   txie
+F9D.5   rcie
+F9D.6   adie
+F9D.7   pspie
+F9E.0   tmr1if
+F9E     pir1
+F9E.1   tmr2if
+F9E.2   ccp1if
+F9E.3   sspif
+F9E.4   txif
+F9E.5   rcif
+F9E.6   adif
+F9E.7   pspif
+FAB.0   rx9d
+FAB     rcsta
+FAB.1   oerr
+FAB.2   ferr
+FAB.3   adden
+FAB.4   cren
+FAB.5   sren
+FAB.6   rx9
+FAB.7   spen
+FAC     txsta
+FAC.0   tx9d
+FAC.1   trmt
+FAC.2   brgh
+FAC.3   sendb
+FAC.4   sync
+FAC.5   txen
+FAC.6   tx9
+FAC.7   csrc
+FAD     txreg
+FAE     rcreg
+FAF     spbrg
+FB0     spbrgh
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FD8     status
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @READ_PROGRAM_MEMORY.P4
+FF2     intcon
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+00CC  @delay_ms1
+0026  LCD_INIT_STRING
+0170  lcd_read_byte
+0126  lcd_read_nibble
+00F4  lcd_send_nibble
+01B0  lcd_send_byte
+01E8  lcd_init
+024A  lcd_gotoxy
+026C  lcd_putc
+0008  int8errupcao
+09CE  MAIN
+003A  @const260
+02B0  @PSTRINGC_251
+0044  @const262
+004A  @const263
+0054  @const264
+005E  @const265
+02D0  @PSTRINGCN_251
+02EE  @DIV88
+0316  @PRINTF_U_251
+006A  @const274
+0074  @const275
+037E  @PRINTF_D_251
+0080  @const279
+008A  @const280
+009C  @const281
+00A6  @const282
+0446  @MULFF
+053A  @FTOSD
+057A  @DIV3232
+05F4  @PRINTF_L32D_251FPFPF
+00B4  @const294
+00BE  @const295
+0774  @PRINTF_E_251
+09CE  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\DADOS\projeto\MicrochipPic18LCD\
+
+Project Files:
+    main.c
+    ..\..\..\Program Files (x86)\PICC\devices\18F4520.h
+    ..\..\..\Program Files (x86)\PICC\drivers\string.h
+    ..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+    ..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+    ..\INCLUDES\18F4520_registradores.h
+    ..\..\..\Program Files (x86)\PICC\drivers\lcd.c
+
+Units:
+    C:\DADOS\projeto\MicrochipPic18LCD\main (main)
+
+Compiler Settings:
+    Processor:      PIC18F4520
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX32:      main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.sta
