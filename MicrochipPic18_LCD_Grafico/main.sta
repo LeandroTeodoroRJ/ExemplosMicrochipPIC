@@ -1,0 +1,82 @@
+
+ROM used: 7652 (23%)
+          7652 (23%) including unused fragments
+
+          3 Average locations per line
+          24 Average locations per statement
+
+RAM used: 40 (3%) at main() level
+          78 (5%) worst case
+
+Stack used: 5 worst case (out of 31 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  254    61  19  main.c
+  457     0   0  ..\..\..\Program Files (x86)\PICC\devices\18F4520.h
+  409     0   0  ..\..\..\Program Files (x86)\PICC\drivers\string.h
+   28     0   0  ..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+   28     0   0  ..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+   81     0   0  ..\INCLUDES\18F4520_registradores.h
+  353    74  23  ..\INCLUDES\LIB_HDM64GS12.c
+  555   167  52  ..\INCLUDES\LIB_GRAPHICS.C
+  180    20   6  BMPImages.C
+----- -----
+ 2345   322 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     38   0   1             @delay_ms1
+0    118   1   1   555  3.4  glcd_init
+0    194   1   7   764  7.1  glcd_pixel
+0    110   1   4   498  4.8  glcd_fillScreen
+0     44   0   2   257  2.8  glcd_writeByte
+0     52   0   2   318  2.8  glcd_readByte
+0    272   2   0             @const245
+0    236   2   0             @const248
+0    306   2  17  1475  8.8  glcd_line
+0    182   1   6  1036  5.8  glcd_rect
+0    884   6  27  3023 11.1  glcd_bar
+0     80   1   6             @MULS1616
+0    486   3  12  1822  8.6  glcd_circle
+0     74   0   2             @MUL88
+0    408   3  20  1550 11.2  glcd_text57
+0   1038   7   0             @const326
+0   1038   7   0             @const329
+0    306   2   6   988  7.9  glcd_imagem
+0     30   0   5             @MUL1616
+0     30   0   0   117  2.3  interrupcao
+0     20   0   1    32  1.0  limpa_e_delay
+0    566   4   1  2237  3.9  MAIN
+0     10   0   0             @const342
+0     28   0   1             @SPRINTF
+0     30   0   3             @PSTRINGCN_344
+0     40   0   3             @DIV88
+0    202   1   6             @PRINTF_D_344
+0     12   0   0             @const354
+0    244   2  11             @MULFF
+0     64   0   5             @FTOSD
+0    122   1  13             @DIV3232
+0    384   3  13             @PRINTF_L32D_344FPFPF
+
+Program metrics:
+    Functions               14
+    Statements              322
+    Comments                730
+    Volume (V)              22220
+    Difficilty (D)          80.5
+    Effort to implement (E) 1788728
+    Time to implement (T)   27 hours, 36 minutes
+    Est Delivered Bugs (B)  5
+    Cyclomatic Complexity   54
+    Maintainability (MI)    32
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-00024    30  0  
+00026-07FFE  7618  25112  
+
+
+
