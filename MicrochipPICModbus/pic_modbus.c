@@ -3,7 +3,7 @@
 
 
 
-//*********************** CONSTANTES E VARI¡VEIS *****************************
+//*********************** CONSTANTES E VARI√ÅVEIS *****************************
 
 #define  TAMANHO_MAX_BUFFER   20
 #define  TX_ENABLE_DELAY      10
@@ -44,12 +44,12 @@ void transmite_buffer_tx(){
    int count = 0;
 //   disable_interrupts(int_rda);
 //   disable_interrupts(int_timer0);
-   bit_set(TX_ENABLE_PIN);                 //Habilita a transmiss„o
-   delay_ms(TX_ENABLE_DELAY);             //Delay para comeÁo de transmiss„o         
+   bit_set(TX_ENABLE_PIN);                 //Habilita a transmiss√£o
+   delay_ms(TX_ENABLE_DELAY);             //Delay para come√ßo de transmiss√£o         
    while(count < modbus_buffer_len + CRC_BYTES){
       putc(modbus_tx_buffer[count]);
       count++;
-      delay_ms(RX_PROCESSING_DELAY);     //Espera processamento pelo receptor, para rotinas maiores de delay utilizar as interrupÁıes dos timers
+      delay_ms(RX_PROCESSING_DELAY);     //Espera processamento pelo receptor, para rotinas maiores de delay utilizar as interrup√ß√µes dos timers
    }
    delay_ms(TX_ENABLE_DELAY); 
    bit_clear(TX_ENABLE_PIN);             //Habilita a leitura
@@ -106,13 +106,6 @@ void modbus_receive_delay(){
    }
 }
 
-
-void debug_message(){
-      lcd_escreve('\f');   //Limpa o lcd
-      lcd_escreve('\b');
-      lcd_pos_xy(1,1);           //Posiciona o cursor x e
-      lcd_escreve("Passou aqui.");
-}
 
 int1 modbus_check_crc(unsigned int dataLenght){
    unsigned long checksum;
