@@ -42,7 +42,7 @@ void modbus_init(){
 
 void transmite_buffer_tx(){
    int count = 0;
-//   disable_interrupts(int_rda);
+   disable_interrupts(int_rda);
 //   disable_interrupts(int_timer0);
    bit_set(TX_ENABLE_PIN);                 //Habilita a transmissão
    delay_ms(TX_ENABLE_DELAY);             //Delay para começo de transmissão         
@@ -54,7 +54,7 @@ void transmite_buffer_tx(){
    delay_ms(TX_ENABLE_DELAY); 
    bit_clear(TX_ENABLE_PIN);             //Habilita a leitura
    modbus_buffer_len = 0;                //Reseta o buffer de tx
-//   enable_interrupts(int_rda);
+   enable_interrupts(int_rda);
 //   enable_interrupts(int_timer0);
 }
 
