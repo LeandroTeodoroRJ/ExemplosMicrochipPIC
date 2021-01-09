@@ -1,9 +1,9 @@
+//***************************************************************************
+//                    BIBLIOTECA PROTOCOLO MODBUS RTU
+//***************************************************************************
 
-//   Include do Protocolo Modbus
 
-
-
-//*********************** CONSTANTES E VARI√ÅVEIS *****************************
+//*********************** CONSTANTES E VARI¡VEIS *****************************
 
 #define  TAMANHO_MAX_BUFFER   20
 #define  TX_ENABLE_DELAY      10
@@ -29,6 +29,7 @@ int1  modbus_receive_data;
 int1  modbus_mode;                              //Modo master ou slave                            
 int1  modbus_trata_dado;
 
+
 // ***************************************************************************
 
 void modbus_init(){
@@ -44,12 +45,12 @@ void transmite_buffer_tx(){
    int count = 0;
    disable_interrupts(int_rda);
 //   disable_interrupts(int_timer0);
-   bit_set(TX_ENABLE_PIN);                 //Habilita a transmiss√£o
-   delay_ms(TX_ENABLE_DELAY);             //Delay para come√ßo de transmiss√£o         
+   bit_set(TX_ENABLE_PIN);                 //Habilita a transmiss„o
+   delay_ms(TX_ENABLE_DELAY);             //Delay para comeÁo de transmiss„o         
    while(count < modbus_buffer_len + CRC_BYTES){
       putc(modbus_tx_buffer[count]);
       count++;
-      delay_ms(RX_PROCESSING_DELAY);     //Espera processamento pelo receptor, para rotinas maiores de delay utilizar as interrup√ß√µes dos timers
+      delay_ms(RX_PROCESSING_DELAY);     //Espera processamento pelo receptor, para rotinas maiores de delay utilizar as interrupÁıes dos timers
    }
    delay_ms(TX_ENABLE_DELAY); 
    bit_clear(TX_ENABLE_PIN);             //Habilita a leitura

@@ -3,7 +3,7 @@
 //****************************************************************************
 //Compilador CCS PCWH Ver 4.104
 
-#include <16F877.h>              //include do 16F877
+#include <16F877.h>              //include do 16F777
 #include <string.h>
 #include <16f8x_registradores.h>//MAPEAMENTO DE MEÓRIA DOS REGISTRADORES
                                                     
@@ -49,7 +49,6 @@
 //****************************************************************************
 #define  debouce     10
 
-short int   estado_porta;
 
 //***************************************************************************
 //                               DRIVES
@@ -64,9 +63,8 @@ short int   estado_porta;
 
 /*
 //#inline                     //descomentar se for usar o in_line
-void trata_serial(){
 
-}
+
 */
 
 //****************************************************************************
@@ -101,7 +99,7 @@ void modbus_implementa_slave(){
 
 void modbus_implementa_dado(){
    if (modbus_trata_dado == true){
-      if (modbus_check_crc(modbus_buffer_rx_len-2)==true){ //Checa erro CRC
+      if (modbus_check_crc(modbus_buffer_rx_len - CRC_BYTES)==true){ //Checa erro CRC
          //implementa a mensagem Modbus
          if (modbus_mode == MODBUS_MASTER){
             modbus_implementa_master();   //Implementa modo master
@@ -152,18 +150,17 @@ void main(){
       setup_wdt(wdt_288ms);
       port_b_pullups(true);   //Ativa os pullups do port B   
       
-          //Do pic18 boilerplate
-       setup_psp(PSP_DISABLED);
-       setup_adc_ports(NO_ANALOGS);
-       setup_adc(ADC_OFF);
-       setup_spi(SPI_SS_DISABLED);
-       setup_timer_2(T2_DISABLED,0,1);
+      setup_psp(PSP_DISABLED);
+      setup_adc_ports(NO_ANALOGS);
+      setup_adc(ADC_OFF);
+      setup_spi(SPI_SS_DISABLED);
+      setup_timer_2(T2_DISABLED,0,1);
 
 //    Configuração do tris
 //    Bit porta: 76543210
       tris_a = 0b00000000;
 //    tris_b = 0b00000000;  //Definido no arquivo drive do teclado
-      tris_c = 0b10000000;  //TTl to RS485 on-board
+      tris_c = 0b10000000;  //TTL to RS485 on-board
       tris_d = 0b00000000;
       tris_e = 0b00000000;
       
@@ -181,7 +178,6 @@ void main(){
       
 //******************** INICIALIZAÇÃO DE VARIÁVEIS ***************************
       key_trata = false;
-      estado_porta = false;
       modbus_mode = MODBUS_MASTER;
 //*************************** TELA INICIAL **********************************
       lcd_pos_xy(1,1);           //Posiciona o cursor x e
